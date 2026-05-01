@@ -1119,7 +1119,7 @@ li {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: var(--space-12);
-	align-items: start;
+	align-items: center;
 }
 .locations-list {
 	display: flex;
