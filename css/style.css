@@ -466,7 +466,7 @@ li {
 		display: none;
 	}
 	.nav-cta {
-		display: none;
+		display: none !important;
 	}
 	.menu-btn {
 		display: flex;
