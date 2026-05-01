@@ -461,7 +461,7 @@ li {
 	font-weight: 600;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 460px) {
 	.nav-links {
 		display: none;
 	}
