@@ -891,6 +891,7 @@ li {
 	.featured-service {
 		grid-template-columns: 1fr;
 		direction: ltr;
+		text-align: center;
 	}
 	.featured-service-img {
 		max-height: 280px;
