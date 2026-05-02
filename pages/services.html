@@ -28,7 +28,8 @@
 	</head>
 	<style>
 		@media (max-width: 900px) {
-			.why-grid-3 {
+			.why-grid-3,
+			.serv-grid {
 				grid-template-columns: repeat(2, 1fr) !important;
 				/* Override the default 3-column layout for smaller screens */
 				gap: var(--space-6);
@@ -36,7 +37,8 @@
 			}
 		}
 		@media (max-width: 480px) {
-			.why-grid-3 {
+			.why-grid-3,
+			.serv-grid {
 				grid-template-columns: 1fr !important;
 			}
 		}
@@ -416,7 +418,7 @@
 						</p>
 					</div>
 					<div
-						class="services-grid"
+						class="services-grid serv-grid"
 						style="
 							display: grid;
 							grid-template-columns: repeat(4, 1fr);
