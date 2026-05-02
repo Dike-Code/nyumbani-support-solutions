@@ -738,6 +738,10 @@ li {
 	grid-template-columns: repeat(4, 1fr);
 	gap: var(--space-6);
 }
+
+.services-grid-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
 .service-card {
 	background: var(--color-surface);
 	border: 1px solid var(--color-border);
@@ -1059,14 +1063,14 @@ li {
 /* ---- WHY CHOOSE US ---- */
 .why-grid {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: var(--space-6);
 }
 
-.gridd {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+.why-grid-3 {
+	grid-template-columns: repeat(3, 1fr);
 	gap: var(--space-6);
+	align-items: center;
 }
 .why-card {
 	padding: var(--space-6);
