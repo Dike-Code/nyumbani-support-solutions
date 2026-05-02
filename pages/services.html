@@ -35,11 +35,25 @@
 				gap: var(--space-6);
 				align-items: center;
 			}
+
+			.nav-logo img {
+				width: 80px !important;
+				height: 80px !important;
+				object-fit: cover;
+				/* Adjust logo size for mobile */
+			}
 		}
 		@media (max-width: 480px) {
 			.why-grid-3,
 			.serv-grid {
 				grid-template-columns: 1fr !important;
+			}
+
+			.nav-logo img {
+				width: 80px !important;
+				height: 60px !important;
+				object-fit: cover;
+				/* Adjust logo size for mobile */
 			}
 		}
 	</style>
