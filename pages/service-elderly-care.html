@@ -3,10 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Contact — Nyumbani Support Solutions</title>
+		<title>Elderly Care at Home — Nyumbani Support Solutions</title>
 		<meta
 			name="description"
-			content="Talk to a Nyumbani Support Solutions care coordinator. Request a free assessment, ask about services, or enquire about equipment — we serve families across Kenya."
+			content="Daily in-home elderly care across Kenya — bathing, dressing, mobility, meals, companionship, and medication reminders delivered with patience and dignity."
 		/>
 		<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 		<link
@@ -60,13 +60,13 @@
 				<ul class="nav-links" id="nav-menu">
 					<li><a href="../index.html">Home</a></li>
 					<li><a href="about.html">About Us</a></li>
-					<li><a href="services.html">Services</a></li>
+					<li><a href="services.html" class="active">Services</a></li>
 					<li><a href="care-packages.html">Care Packages</a></li>
 					<li><a href="equipment.html">Equipment</a></li>
 					<li>
 						<a href="family-resources.html">Family Resources</a>
 					</li>
-					<li><a href="contact.html" class="active">Contact</a></li>
+					<li><a href="contact.html">Contact</a></li>
 				</ul>
 				<div class="nav-cta">
 					<button class="theme-toggle" aria-label="Toggle dark mode">
@@ -127,163 +127,56 @@
 			</div>
 		</header>
 		<main id="main">
-			<section class="page-hero">
-				<div class="container">
-					<div class="breadcrumb">
-						<a href="../index.html">Home</a> &nbsp;/&nbsp; Contact
+			<section class="hero">
+				<div class="container hero-inner">
+					<div class="reveal">
+						<div class="breadcrumb">
+							<a href="../index.html">Home</a> &nbsp;/&nbsp;
+							<a href="services.html">Services</a> &nbsp;/&nbsp;
+							Elderly Care
+						</div>
+						<span class="eyebrow">Elderly Care</span>
+						<h1>Aging at home, with dignity and daily support</h1>
+						<p class="lede">
+							For seniors who want to remain in familiar
+							surroundings — our elderly care service provides the
+							consistent, patient daily support that makes
+							independent living genuinely safe and comfortable.
+						</p>
+						<div class="hero-cta">
+							<a href="contact.html" class="btn btn-primary"
+								>Request a Care Assessment</a
+							>
+							<a href="care-packages.html" class="btn btn-outline"
+								>View Care Packages</a
+							>
+						</div>
 					</div>
-					<span class="eyebrow">Get In Touch</span>
-					<h1>Talk to a care coordinator</h1>
-					<p class="lede">
-						Send us a message and we'll respond within one business
-						day. There are no wrong questions — our job is to help
-						you understand your options and make the right decision
-						for your family.
-					</p>
+					<div class="hero-visual hero-photo reveal">
+						<img
+							src="../assets/photos/nyumbani-service-elderly.png"
+							alt="Nyumbani caregiver in forest green uniform helping an elderly Kenyan woman with morning grooming at home"
+						/>
+					</div>
 				</div>
 			</section>
 
 			<section>
-				<div class="container two-col" style="align-items: flex-start">
-					<div class="reveal">
-						<h2>Send a message</h2>
+				<div class="container">
+					<div class="section-head reveal">
+						<span class="eyebrow">What's Included</span>
+						<h2>Comprehensive daily support at home</h2>
 						<p>
-							Tell us a little about your loved one's situation
-							and what kind of support you're exploring. We'll
-							follow up with a warm, no-pressure conversation.
+							Each care plan is personalised — but here are the
+							core elements included in our elderly care service.
 						</p>
-						<form
-							class="form-grid mt-2"
-							action="mailto:info@nyumbanisupportsolutions.com"
-							method="POST"
-							enctype="text/plain"
-							onsubmit="
-								setTimeout(() => {
-									document.getElementById(
-										'contact-success',
-									).style.display = 'block';
-									this.style.display = 'none';
-								}, 200)
-							"
-						>
-							<div class="form-row">
-								<div class="field">
-									<label for="c-name">Your name</label>
-									<input
-										id="c-name"
-										name="Name"
-										type="text"
-										required
-										placeholder="Full name"
-									/>
-								</div>
-								<div class="field">
-									<label for="c-phone">Phone number</label>
-									<input
-										id="c-phone"
-										name="Phone"
-										type="tel"
-										placeholder="+254 …"
-									/>
-								</div>
-							</div>
-							<div class="field">
-								<label for="c-email">Email address</label>
-								<input
-									id="c-email"
-									name="Email"
-									type="email"
-									required
-									placeholder="you@example.com"
-								/>
-							</div>
-							<div class="field">
-								<label for="c-care">Care needed</label>
-								<select id="c-care" name="Care needed">
-									<option value="">Please select…</option>
-									<option>Elderly Care at Home</option>
-									<option>Post-Discharge Recovery</option>
-									<option>
-										Skilled Nursing &amp; Oversight
-									</option>
-									<option>
-										Dementia &amp; Frailty Support
-									</option>
-									<option>
-										Palliative &amp; Comfort Care
-									</option>
-									<option>Equipment Rental</option>
-									<option>
-										Not sure yet — need guidance
-									</option>
-								</select>
-							</div>
-							<div class="field">
-								<label for="c-city">Your city</label>
-								<select id="c-city" name="City">
-									<option value="">Please select…</option>
-									<option>Nairobi</option>
-									<option>Mombasa</option>
-									<option>Kisumu</option>
-									<option>Eldoret</option>
-									<option>Nakuru</option>
-									<option>Naivasha</option>
-									<option>Thika</option>
-									<option>Karen</option>
-									<option>Kiambu</option>
-									<option>Westlands</option>
-									<option>Lavington</option>
-									<option>Parklands</option>
-									<option>Runda</option>
-									<option>Muthaiga</option>
-									<option>Nyali (Mombasa)</option>
-									<option>
-										Other — please mention in message
-									</option>
-								</select>
-							</div>
-							<div class="field">
-								<label for="c-msg">Your message</label>
-								<textarea
-									id="c-msg"
-									name="Message"
-									rows="5"
-									placeholder="Tell us about your loved one's situation, what kind of support you're looking for, and any urgent timeline we should know about…"
-								></textarea>
-							</div>
-							<button type="submit" class="btn btn-primary">
-								Send Message
-							</button>
-						</form>
-						<div
-							id="contact-success"
-							style="display: none; margin-top: 1.5rem"
-							class="card"
-						>
-							<h3>✓ Message sent</h3>
-							<p>
-								Thank you for reaching out. Your message has
-								been submitted to
-								<strong
-									>info@nyumbanisupportsolutions.com</strong
-								>. We'll be in touch within one business day.
-							</p>
-						</div>
 					</div>
-
-					<div
-						class="reveal"
-						style="
-							display: flex;
-							flex-direction: column;
-							gap: 1.25rem;
-						"
-					>
-						<div class="card">
+					<div class="grid grid-3">
+						<div class="card reveal">
 							<div class="card-icon">
 								<svg
-									width="22"
-									height="22"
+									width="24"
+									height="24"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -292,58 +185,23 @@
 									stroke-linejoin="round"
 								>
 									<path
-										d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+										d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
 									/>
-									<circle cx="12" cy="10" r="3" />
+									<circle cx="12" cy="7" r="4" />
 								</svg>
 							</div>
-							<h3>Where We Serve</h3>
-							<p style="margin-top: 0.5rem">
-								Across Kenya — our caregivers travel to wherever
-								home is, in town or upcountry. When you reach
-								out, we'll confirm coverage in your specific
-								area.
-							</p>
-						</div>
-
-						<div class="card">
-							<div class="card-icon">
-								<svg
-									width="22"
-									height="22"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.8"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								>
-									<path
-										d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-									/>
-									<polyline points="22,6 12,13 2,6" />
-								</svg>
-							</div>
-							<h3>Email Us</h3>
+							<h3>Personal Care Assistance</h3>
 							<p>
-								<a
-									href="mailto:info@nyumbanisupportsolutions.com"
-									>info@nyumbanisupportsolutions.com</a
-								>
-							</p>
-							<p
-								style="font-size: 0.88rem; margin-top: 0.25rem"
-								class="muted"
-							>
-								We respond within one business day.
+								Dignified help with bathing, grooming, dressing,
+								and toileting — delivered respectfully, at the
+								senior's own pace and preference.
 							</p>
 						</div>
-
-						<div class="card">
+						<div class="card reveal">
 							<div class="card-icon">
 								<svg
-									width="22"
-									height="22"
+									width="24"
+									height="24"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -351,23 +209,21 @@
 									stroke-linecap="round"
 									stroke-linejoin="round"
 								>
-									<path
-										d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-									/>
+									<path d="M3 11l19-9-9 19-2-8-8-2z" />
 								</svg>
 							</div>
-							<h3>Call &amp; WhatsApp</h3>
-							<p class="muted" style="font-size: 0.9rem">
-								Phone and WhatsApp contact details coming soon —
-								please use the form or email for now.
+							<h3>Mobility &amp; Movement</h3>
+							<p>
+								Safe transfer assistance, walking support,
+								range-of-motion exercises, and fall-risk
+								monitoring to keep seniors mobile and confident.
 							</p>
 						</div>
-
-						<div class="card">
+						<div class="card reveal">
 							<div class="card-icon">
 								<svg
-									width="22"
-									height="22"
+									width="24"
+									height="24"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -379,52 +235,197 @@
 									<polyline points="12 6 12 12 16 14" />
 								</svg>
 							</div>
-							<h3>Hours</h3>
+							<h3>Medication Reminders</h3>
 							<p>
-								Our care coordination team is available
-								<strong>Monday – Saturday, 8am – 6pm</strong>
-								for enquiries and assessments.
+								Timely medication prompts, help with dosing, and
+								monitoring for missed doses or adverse reactions
+								— with family notification when concerns arise.
 							</p>
-							<p
-								style="font-size: 0.88rem; margin-top: 0.5rem"
-								class="muted"
-							>
-								For active care clients, 24/7 on-call support is
-								available throughout the care plan.
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+									<path
+										d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"
+									/>
+									<line x1="6" y1="1" x2="6" y2="4" />
+									<line x1="10" y1="1" x2="10" y2="4" />
+									<line x1="14" y1="1" x2="14" y2="4" />
+								</svg>
+							</div>
+							<h3>Meals &amp; Nutrition</h3>
+							<p>
+								Meal preparation based on dietary needs and
+								preferences, hydration support, and gentle
+								encouragement for consistent, nourishing eating
+								habits.
+							</p>
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+									/>
+								</svg>
+							</div>
+							<h3>Companionship</h3>
+							<p>
+								Genuine conversation, shared activities, and
+								consistent presence — because loneliness is as
+								harmful to health as any physical condition.
+							</p>
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+									/>
+									<polyline points="9 22 9 12 15 12 15 22" />
+								</svg>
+							</div>
+							<h3>Light Housekeeping &amp; Wellness Checks</h3>
+							<p>
+								Light tidying, laundry help, and gentle wellness
+								check-ins — noting changes in mood, energy,
+								appetite, or function and communicating them to
+								the family.
 							</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="service-area-section">
+			<section class="section-bg-alt">
+				<div class="container two-col">
+					<div class="reveal">
+						<span class="eyebrow">Is This Right for You?</span>
+						<h2>When elderly care at home makes sense</h2>
+						<ul class="bullet-list">
+							<li>
+								Your parent or grandparent wants to remain at
+								home but needs daily help with personal care
+							</li>
+							<li>
+								You live in a different city and need reliable,
+								regular support for an aging family member
+							</li>
+							<li>
+								An elder is recovering from a health episode but
+								doesn't need clinical nursing oversight
+							</li>
+							<li>
+								A senior is becoming less mobile and the family
+								is worried about falls or self-neglect
+							</li>
+							<li>
+								You want professional companionship and activity
+								support to prevent isolation and decline
+							</li>
+							<li>
+								The household needs light-touch supervision
+								between family visits or caregiver shifts
+							</li>
+						</ul>
+					</div>
+					<div class="reveal">
+						<span class="eyebrow">How We Deliver This Care</span>
+						<h2>Our process, step by step</h2>
+						<div class="steps" style="margin-top: 1.5rem">
+							<div class="step">
+								<div class="step-num">1</div>
+								<div>
+									<h4>Home Assessment</h4>
+									<p>
+										We visit to understand the senior's
+										daily routine, mobility level, and care
+										preferences — plus assess the home for
+										safety.
+									</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-num">2</div>
+								<div>
+									<h4>Care Plan Created</h4>
+									<p>
+										We build a personalised schedule of
+										tasks, visit frequency, and any
+										specialist additions (e.g. dementia
+										support or nursing oversight).
+									</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-num">3</div>
+								<div>
+									<h4>Consistent Caregiver</h4>
+									<p>
+										The same trained caregiver arrives each
+										visit — building familiarity, trust, and
+										a relationship the senior genuinely
+										looks forward to.
+									</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-num">4</div>
+								<div>
+									<h4>Family Updates</h4>
+									<p>
+										Regular communication to the family —
+										what went well, what to watch, and any
+										changes in condition that need
+										attention.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
 				<div class="container">
-					<div class="service-area-band reveal">
-						<div class="service-area-icon">
-							<svg
-								width="28"
-								height="28"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.8"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path
-									d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-								/>
-								<circle cx="12" cy="10" r="3" />
-							</svg>
-						</div>
-						<div class="service-area-content">
-							<span class="eyebrow">Where We Serve</span>
-							<h2>Care that comes home — across Kenya</h2>
-							<p>
-								Our trained caregivers travel to you, wherever
-								home is. Every visit, in your own space.
-							</p>
-						</div>
+					<div class="cta-strip reveal">
+						<h2>Let's talk about your loved one's needs</h2>
+						<p>
+							A free care assessment is the best first step. We'll
+							visit at home, listen carefully, and recommend the
+							right level of care — no commitment required.
+						</p>
+						<a href="contact.html" class="btn btn-primary"
+							>Request a Free Assessment</a
+						>
 					</div>
 				</div>
 			</section>

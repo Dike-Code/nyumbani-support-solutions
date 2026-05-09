@@ -3,10 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Contact — Nyumbani Support Solutions</title>
+		<title>
+			Skilled Nursing &amp; Oversight — Nyumbani Support Solutions
+		</title>
 		<meta
 			name="description"
-			content="Talk to a Nyumbani Support Solutions care coordinator. Request a free assessment, ask about services, or enquire about equipment — we serve families across Kenya."
+			content="NCK-registered nurses delivering clinical oversight at home — wound care, vitals tracking, catheter care, diabetes management, and provider liaison across Kenya."
 		/>
 		<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 		<link
@@ -60,13 +62,13 @@
 				<ul class="nav-links" id="nav-menu">
 					<li><a href="../index.html">Home</a></li>
 					<li><a href="about.html">About Us</a></li>
-					<li><a href="services.html">Services</a></li>
+					<li><a href="services.html" class="active">Services</a></li>
 					<li><a href="care-packages.html">Care Packages</a></li>
 					<li><a href="equipment.html">Equipment</a></li>
 					<li>
 						<a href="family-resources.html">Family Resources</a>
 					</li>
-					<li><a href="contact.html" class="active">Contact</a></li>
+					<li><a href="contact.html">Contact</a></li>
 				</ul>
 				<div class="nav-cta">
 					<button class="theme-toggle" aria-label="Toggle dark mode">
@@ -127,163 +129,63 @@
 			</div>
 		</header>
 		<main id="main">
-			<section class="page-hero">
-				<div class="container">
-					<div class="breadcrumb">
-						<a href="../index.html">Home</a> &nbsp;/&nbsp; Contact
+			<section class="hero">
+				<div class="container hero-inner">
+					<div class="reveal">
+						<div class="breadcrumb">
+							<a href="../index.html">Home</a> &nbsp;/&nbsp;
+							<a href="services.html">Services</a> &nbsp;/&nbsp;
+							Skilled Nursing
+						</div>
+						<span class="eyebrow"
+							>Skilled Nursing &amp; Oversight</span
+						>
+						<h1>
+							Clinical-quality nursing care, delivered in your
+							home
+						</h1>
+						<p class="lede">
+							When a loved one's medical situation requires more
+							than a caregiver can provide, our NCK-registered
+							nurses step in — bringing the assessments,
+							procedures, and clinical judgment that complex home
+							care demands.
+						</p>
+						<div class="hero-cta">
+							<a href="contact.html" class="btn btn-primary"
+								>Request a Nursing Assessment</a
+							>
+							<a href="care-packages.html" class="btn btn-outline"
+								>View Care Packages</a
+							>
+						</div>
 					</div>
-					<span class="eyebrow">Get In Touch</span>
-					<h1>Talk to a care coordinator</h1>
-					<p class="lede">
-						Send us a message and we'll respond within one business
-						day. There are no wrong questions — our job is to help
-						you understand your options and make the right decision
-						for your family.
-					</p>
+					<div class="hero-visual hero-photo reveal">
+						<img
+							src="../assets/photos/nyumbani-service-nursing.png"
+							alt="Nyumbani NCK-registered nurse in green uniform checking a patient's blood pressure at home in Kenya"
+						/>
+					</div>
 				</div>
 			</section>
 
 			<section>
-				<div class="container two-col" style="align-items: flex-start">
-					<div class="reveal">
-						<h2>Send a message</h2>
+				<div class="container">
+					<div class="section-head reveal">
+						<span class="eyebrow">What's Included</span>
+						<h2>Full-scope clinical nursing at home</h2>
 						<p>
-							Tell us a little about your loved one's situation
-							and what kind of support you're exploring. We'll
-							follow up with a warm, no-pressure conversation.
+							Our skilled nursing service goes beyond observation
+							— our nurses assess, intervene, document, and
+							communicate with the broader care team.
 						</p>
-						<form
-							class="form-grid mt-2"
-							action="mailto:info@nyumbanisupportsolutions.com"
-							method="POST"
-							enctype="text/plain"
-							onsubmit="
-								setTimeout(() => {
-									document.getElementById(
-										'contact-success',
-									).style.display = 'block';
-									this.style.display = 'none';
-								}, 200)
-							"
-						>
-							<div class="form-row">
-								<div class="field">
-									<label for="c-name">Your name</label>
-									<input
-										id="c-name"
-										name="Name"
-										type="text"
-										required
-										placeholder="Full name"
-									/>
-								</div>
-								<div class="field">
-									<label for="c-phone">Phone number</label>
-									<input
-										id="c-phone"
-										name="Phone"
-										type="tel"
-										placeholder="+254 …"
-									/>
-								</div>
-							</div>
-							<div class="field">
-								<label for="c-email">Email address</label>
-								<input
-									id="c-email"
-									name="Email"
-									type="email"
-									required
-									placeholder="you@example.com"
-								/>
-							</div>
-							<div class="field">
-								<label for="c-care">Care needed</label>
-								<select id="c-care" name="Care needed">
-									<option value="">Please select…</option>
-									<option>Elderly Care at Home</option>
-									<option>Post-Discharge Recovery</option>
-									<option>
-										Skilled Nursing &amp; Oversight
-									</option>
-									<option>
-										Dementia &amp; Frailty Support
-									</option>
-									<option>
-										Palliative &amp; Comfort Care
-									</option>
-									<option>Equipment Rental</option>
-									<option>
-										Not sure yet — need guidance
-									</option>
-								</select>
-							</div>
-							<div class="field">
-								<label for="c-city">Your city</label>
-								<select id="c-city" name="City">
-									<option value="">Please select…</option>
-									<option>Nairobi</option>
-									<option>Mombasa</option>
-									<option>Kisumu</option>
-									<option>Eldoret</option>
-									<option>Nakuru</option>
-									<option>Naivasha</option>
-									<option>Thika</option>
-									<option>Karen</option>
-									<option>Kiambu</option>
-									<option>Westlands</option>
-									<option>Lavington</option>
-									<option>Parklands</option>
-									<option>Runda</option>
-									<option>Muthaiga</option>
-									<option>Nyali (Mombasa)</option>
-									<option>
-										Other — please mention in message
-									</option>
-								</select>
-							</div>
-							<div class="field">
-								<label for="c-msg">Your message</label>
-								<textarea
-									id="c-msg"
-									name="Message"
-									rows="5"
-									placeholder="Tell us about your loved one's situation, what kind of support you're looking for, and any urgent timeline we should know about…"
-								></textarea>
-							</div>
-							<button type="submit" class="btn btn-primary">
-								Send Message
-							</button>
-						</form>
-						<div
-							id="contact-success"
-							style="display: none; margin-top: 1.5rem"
-							class="card"
-						>
-							<h3>✓ Message sent</h3>
-							<p>
-								Thank you for reaching out. Your message has
-								been submitted to
-								<strong
-									>info@nyumbanisupportsolutions.com</strong
-								>. We'll be in touch within one business day.
-							</p>
-						</div>
 					</div>
-
-					<div
-						class="reveal"
-						style="
-							display: flex;
-							flex-direction: column;
-							gap: 1.25rem;
-						"
-					>
-						<div class="card">
+					<div class="grid grid-3">
+						<div class="card reveal">
 							<div class="card-icon">
 								<svg
-									width="22"
-									height="22"
+									width="24"
+									height="24"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -292,58 +194,47 @@
 									stroke-linejoin="round"
 								>
 									<path
-										d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+										d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
 									/>
-									<circle cx="12" cy="10" r="3" />
+									<polyline points="9 12 11 14 15 10" />
 								</svg>
 							</div>
-							<h3>Where We Serve</h3>
-							<p style="margin-top: 0.5rem">
-								Across Kenya — our caregivers travel to wherever
-								home is, in town or upcountry. When you reach
-								out, we'll confirm coverage in your specific
-								area.
-							</p>
-						</div>
-
-						<div class="card">
-							<div class="card-icon">
-								<svg
-									width="22"
-									height="22"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.8"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								>
-									<path
-										d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-									/>
-									<polyline points="22,6 12,13 2,6" />
-								</svg>
-							</div>
-							<h3>Email Us</h3>
+							<h3>NCK-Registered Nurse Assessments</h3>
 							<p>
-								<a
-									href="mailto:info@nyumbanisupportsolutions.com"
-									>info@nyumbanisupportsolutions.com</a
-								>
-							</p>
-							<p
-								style="font-size: 0.88rem; margin-top: 0.25rem"
-								class="muted"
-							>
-								We respond within one business day.
+								Comprehensive clinical assessments by Nursing
+								Council of Kenya registered nurses —
+								establishing a baseline and identifying risks
+								early.
 							</p>
 						</div>
-
-						<div class="card">
+						<div class="card reveal">
 							<div class="card-icon">
 								<svg
-									width="22"
-									height="22"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+								</svg>
+							</div>
+							<h3>Vitals Tracking &amp; Documentation</h3>
+							<p>
+								Systematic monitoring of blood pressure, pulse,
+								temperature, oxygen saturation, and blood
+								glucose — documented and reported to the
+								treating physician.
+							</p>
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -352,22 +243,23 @@
 									stroke-linejoin="round"
 								>
 									<path
-										d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+										d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
 									/>
 								</svg>
 							</div>
-							<h3>Call &amp; WhatsApp</h3>
-							<p class="muted" style="font-size: 0.9rem">
-								Phone and WhatsApp contact details coming soon —
-								please use the form or email for now.
+							<h3>Wound Care</h3>
+							<p>
+								Sterile wound dressing, debridement support,
+								infection surveillance, and care plan
+								implementation — aligned with hospital wound
+								management protocols.
 							</p>
 						</div>
-
-						<div class="card">
+						<div class="card reveal">
 							<div class="card-icon">
 								<svg
-									width="22"
-									height="22"
+									width="24"
+									height="24"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -379,52 +271,171 @@
 									<polyline points="12 6 12 12 16 14" />
 								</svg>
 							</div>
-							<h3>Hours</h3>
+							<h3>Medication Coordination</h3>
 							<p>
-								Our care coordination team is available
-								<strong>Monday – Saturday, 8am – 6pm</strong>
-								for enquiries and assessments.
+								IV and oral medication administration, dosing
+								verification, adverse effect monitoring, and
+								liaison with the prescribing physician for any
+								adjustments needed.
 							</p>
-							<p
-								style="font-size: 0.88rem; margin-top: 0.5rem"
-								class="muted"
-							>
-								For active care clients, 24/7 on-call support is
-								available throughout the care plan.
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+									/>
+									<circle cx="12" cy="7" r="4" />
+								</svg>
+							</div>
+							<h3>Catheter &amp; Tube Care</h3>
+							<p>
+								Urinary catheter care, nasogastric tube
+								management, and ostomy care — delivered with
+								clinical precision and patient dignity in mind.
+							</p>
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+									/>
+								</svg>
+							</div>
+							<h3>Diabetes Monitoring &amp; Provider Liaison</h3>
+							<p>
+								Blood glucose monitoring, insulin coordination,
+								dietary guidance, and direct communication with
+								the endocrinologist or general practitioner.
 							</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="service-area-section">
+			<section class="section-bg-alt">
+				<div class="container two-col">
+					<div class="reveal">
+						<span class="eyebrow">Is This Right for You?</span>
+						<h2>When skilled nursing oversight is needed</h2>
+						<ul class="bullet-list">
+							<li>
+								Your loved one has complex, multi-drug
+								medication regimens requiring professional
+								management
+							</li>
+							<li>
+								A surgical wound needs sterile, skilled dressing
+								changes beyond a caregiver's scope
+							</li>
+							<li>
+								A client has diabetes, hypertension, or heart
+								failure requiring ongoing clinical monitoring
+							</li>
+							<li>
+								A catheter, nasogastric tube, or stoma is in
+								place and requires trained care
+							</li>
+							<li>
+								The family wants a licensed clinician's eyes on
+								a deteriorating or unpredictable condition
+							</li>
+							<li>
+								Hospital providers recommended nursing follow-up
+								as part of the discharge plan
+							</li>
+						</ul>
+					</div>
+					<div class="reveal">
+						<span class="eyebrow">How We Deliver This Care</span>
+						<h2>Clinical oversight at home</h2>
+						<div class="steps" style="margin-top: 1.5rem">
+							<div class="step">
+								<div class="step-num">1</div>
+								<div>
+									<h4>Initial Clinical Assessment</h4>
+									<p>
+										An NCK nurse visits, reviews hospital
+										records, and conducts a full assessment
+										— identifying every clinical need and
+										risk factor.
+									</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-num">2</div>
+								<div>
+									<h4>Nursing Care Plan</h4>
+									<p>
+										A structured clinical plan is developed
+										— visit frequency, procedures required,
+										monitoring parameters, and escalation
+										criteria.
+									</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-num">3</div>
+								<div>
+									<h4>Consistent Nurse Visits</h4>
+									<p>
+										The same nurse manages the case —
+										building familiarity with the patient's
+										baseline and catching changes early.
+									</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-num">4</div>
+								<div>
+									<h4>
+										Provider Liaison &amp; Family Updates
+									</h4>
+									<p>
+										Regular updates to the treating
+										physician, specialist, and family — with
+										rapid escalation if the patient's
+										condition requires urgent review.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
 				<div class="container">
-					<div class="service-area-band reveal">
-						<div class="service-area-icon">
-							<svg
-								width="28"
-								height="28"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.8"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path
-									d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-								/>
-								<circle cx="12" cy="10" r="3" />
-							</svg>
-						</div>
-						<div class="service-area-content">
-							<span class="eyebrow">Where We Serve</span>
-							<h2>Care that comes home — across Kenya</h2>
-							<p>
-								Our trained caregivers travel to you, wherever
-								home is. Every visit, in your own space.
-							</p>
-						</div>
+					<div class="cta-strip reveal">
+						<h2>Clinical care your family can rely on</h2>
+						<p>
+							Speak with our care coordination team today. We'll
+							review your loved one's medical situation and
+							recommend the right nursing support plan — with no
+							guesswork and no gaps in care.
+						</p>
+						<a href="contact.html" class="btn btn-primary"
+							>Request a Nursing Assessment</a
+						>
 					</div>
 				</div>
 			</section>

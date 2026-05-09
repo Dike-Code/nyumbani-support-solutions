@@ -3,10 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Contact — Nyumbani Support Solutions</title>
+		<title>
+			Palliative &amp; Comfort Care — Nyumbani Support Solutions
+		</title>
 		<meta
 			name="description"
-			content="Talk to a Nyumbani Support Solutions care coordinator. Request a free assessment, ask about services, or enquire about equipment — we serve families across Kenya."
+			content="Compassionate palliative and comfort care at home for Kenyan families — pain management coordination, dignity-centered daily care, family emotional support, and spiritual respect."
 		/>
 		<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 		<link
@@ -60,13 +62,13 @@
 				<ul class="nav-links" id="nav-menu">
 					<li><a href="../index.html">Home</a></li>
 					<li><a href="about.html">About Us</a></li>
-					<li><a href="services.html">Services</a></li>
+					<li><a href="services.html" class="active">Services</a></li>
 					<li><a href="care-packages.html">Care Packages</a></li>
 					<li><a href="equipment.html">Equipment</a></li>
 					<li>
 						<a href="family-resources.html">Family Resources</a>
 					</li>
-					<li><a href="contact.html" class="active">Contact</a></li>
+					<li><a href="contact.html">Contact</a></li>
 				</ul>
 				<div class="nav-cta">
 					<button class="theme-toggle" aria-label="Toggle dark mode">
@@ -127,163 +129,63 @@
 			</div>
 		</header>
 		<main id="main">
-			<section class="page-hero">
-				<div class="container">
-					<div class="breadcrumb">
-						<a href="../index.html">Home</a> &nbsp;/&nbsp; Contact
+			<section class="hero">
+				<div class="container hero-inner">
+					<div class="reveal">
+						<div class="breadcrumb">
+							<a href="../index.html">Home</a> &nbsp;/&nbsp;
+							<a href="services.html">Services</a> &nbsp;/&nbsp;
+							Palliative Care
+						</div>
+						<span class="eyebrow"
+							>Palliative &amp; Comfort Care</span
+						>
+						<h1>
+							Comfort, dignity, and presence — at home, at every
+							stage
+						</h1>
+						<p class="lede">
+							When a loved one faces a serious or life-limiting
+							illness, the most important thing a family can give
+							them is comfort at home — in familiar surroundings,
+							with people who treat them with patience, dignity,
+							and deep respect. We are here for that.
+						</p>
+						<div class="hero-cta">
+							<a href="contact.html" class="btn btn-primary"
+								>Talk to a Care Coordinator</a
+							>
+							<a href="care-packages.html" class="btn btn-outline"
+								>View Care Packages</a
+							>
+						</div>
 					</div>
-					<span class="eyebrow">Get In Touch</span>
-					<h1>Talk to a care coordinator</h1>
-					<p class="lede">
-						Send us a message and we'll respond within one business
-						day. There are no wrong questions — our job is to help
-						you understand your options and make the right decision
-						for your family.
-					</p>
+					<div class="hero-visual hero-photo reveal">
+						<img
+							src="../assets/photos/nyumbani-service-palliative.png"
+							alt="Nyumbani caregiver in green uniform holding the hand of an elderly Kenyan patient in a comfortable home setting"
+						/>
+					</div>
 				</div>
 			</section>
 
 			<section>
-				<div class="container two-col" style="align-items: flex-start">
-					<div class="reveal">
-						<h2>Send a message</h2>
+				<div class="container">
+					<div class="section-head reveal">
+						<span class="eyebrow">What's Included</span>
+						<h2>Care that honours the whole person</h2>
 						<p>
-							Tell us a little about your loved one's situation
-							and what kind of support you're exploring. We'll
-							follow up with a warm, no-pressure conversation.
+							Our palliative care service focuses on comfort,
+							quality of life, and the wellbeing of the entire
+							family — not just the clinical picture.
 						</p>
-						<form
-							class="form-grid mt-2"
-							action="mailto:info@nyumbanisupportsolutions.com"
-							method="POST"
-							enctype="text/plain"
-							onsubmit="
-								setTimeout(() => {
-									document.getElementById(
-										'contact-success',
-									).style.display = 'block';
-									this.style.display = 'none';
-								}, 200)
-							"
-						>
-							<div class="form-row">
-								<div class="field">
-									<label for="c-name">Your name</label>
-									<input
-										id="c-name"
-										name="Name"
-										type="text"
-										required
-										placeholder="Full name"
-									/>
-								</div>
-								<div class="field">
-									<label for="c-phone">Phone number</label>
-									<input
-										id="c-phone"
-										name="Phone"
-										type="tel"
-										placeholder="+254 …"
-									/>
-								</div>
-							</div>
-							<div class="field">
-								<label for="c-email">Email address</label>
-								<input
-									id="c-email"
-									name="Email"
-									type="email"
-									required
-									placeholder="you@example.com"
-								/>
-							</div>
-							<div class="field">
-								<label for="c-care">Care needed</label>
-								<select id="c-care" name="Care needed">
-									<option value="">Please select…</option>
-									<option>Elderly Care at Home</option>
-									<option>Post-Discharge Recovery</option>
-									<option>
-										Skilled Nursing &amp; Oversight
-									</option>
-									<option>
-										Dementia &amp; Frailty Support
-									</option>
-									<option>
-										Palliative &amp; Comfort Care
-									</option>
-									<option>Equipment Rental</option>
-									<option>
-										Not sure yet — need guidance
-									</option>
-								</select>
-							</div>
-							<div class="field">
-								<label for="c-city">Your city</label>
-								<select id="c-city" name="City">
-									<option value="">Please select…</option>
-									<option>Nairobi</option>
-									<option>Mombasa</option>
-									<option>Kisumu</option>
-									<option>Eldoret</option>
-									<option>Nakuru</option>
-									<option>Naivasha</option>
-									<option>Thika</option>
-									<option>Karen</option>
-									<option>Kiambu</option>
-									<option>Westlands</option>
-									<option>Lavington</option>
-									<option>Parklands</option>
-									<option>Runda</option>
-									<option>Muthaiga</option>
-									<option>Nyali (Mombasa)</option>
-									<option>
-										Other — please mention in message
-									</option>
-								</select>
-							</div>
-							<div class="field">
-								<label for="c-msg">Your message</label>
-								<textarea
-									id="c-msg"
-									name="Message"
-									rows="5"
-									placeholder="Tell us about your loved one's situation, what kind of support you're looking for, and any urgent timeline we should know about…"
-								></textarea>
-							</div>
-							<button type="submit" class="btn btn-primary">
-								Send Message
-							</button>
-						</form>
-						<div
-							id="contact-success"
-							style="display: none; margin-top: 1.5rem"
-							class="card"
-						>
-							<h3>✓ Message sent</h3>
-							<p>
-								Thank you for reaching out. Your message has
-								been submitted to
-								<strong
-									>info@nyumbanisupportsolutions.com</strong
-								>. We'll be in touch within one business day.
-							</p>
-						</div>
 					</div>
-
-					<div
-						class="reveal"
-						style="
-							display: flex;
-							flex-direction: column;
-							gap: 1.25rem;
-						"
-					>
-						<div class="card">
+					<div class="grid grid-3">
+						<div class="card reveal">
 							<div class="card-icon">
 								<svg
-									width="22"
-									height="22"
+									width="24"
+									height="24"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -292,58 +194,46 @@
 									stroke-linejoin="round"
 								>
 									<path
-										d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+										d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
 									/>
-									<circle cx="12" cy="10" r="3" />
 								</svg>
 							</div>
-							<h3>Where We Serve</h3>
-							<p style="margin-top: 0.5rem">
-								Across Kenya — our caregivers travel to wherever
-								home is, in town or upcountry. When you reach
-								out, we'll confirm coverage in your specific
-								area.
-							</p>
-						</div>
-
-						<div class="card">
-							<div class="card-icon">
-								<svg
-									width="22"
-									height="22"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.8"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								>
-									<path
-										d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-									/>
-									<polyline points="22,6 12,13 2,6" />
-								</svg>
-							</div>
-							<h3>Email Us</h3>
+							<h3>Pain &amp; Symptom Management Coordination</h3>
 							<p>
-								<a
-									href="mailto:info@nyumbanisupportsolutions.com"
-									>info@nyumbanisupportsolutions.com</a
-								>
-							</p>
-							<p
-								style="font-size: 0.88rem; margin-top: 0.25rem"
-								class="muted"
-							>
-								We respond within one business day.
+								Close coordination with the treating physician
+								and palliative care specialist to ensure
+								medication regimens are effective and side
+								effects are managed proactively.
 							</p>
 						</div>
-
-						<div class="card">
+						<div class="card reveal">
 							<div class="card-icon">
 								<svg
-									width="22"
-									height="22"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M3 11l19-9-9 19-2-8-8-2z" />
+								</svg>
+							</div>
+							<h3>Comfort Positioning</h3>
+							<p>
+								Regular repositioning to prevent pressure sores,
+								optimise comfort, and maintain skin integrity —
+								guided by clinical best practice and the
+								client's preferences.
+							</p>
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -352,22 +242,50 @@
 									stroke-linejoin="round"
 								>
 									<path
-										d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+										d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
 									/>
+									<circle cx="9" cy="7" r="4" />
 								</svg>
 							</div>
-							<h3>Call &amp; WhatsApp</h3>
-							<p class="muted" style="font-size: 0.9rem">
-								Phone and WhatsApp contact details coming soon —
-								please use the form or email for now.
+							<h3>Family Emotional Support</h3>
+							<p>
+								Compassionate presence and guidance for family
+								members — including practical help with the
+								household, honest communication, and referrals
+								for counselling when needed.
 							</p>
 						</div>
-
-						<div class="card">
+						<div class="card reveal">
 							<div class="card-icon">
 								<svg
-									width="22"
-									height="22"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+									/>
+									<circle cx="12" cy="7" r="4" />
+								</svg>
+							</div>
+							<h3>Dignity-Centered Daily Care</h3>
+							<p>
+								Personal care — bathing, dressing, oral hygiene
+								— carried out gently and respectfully,
+								maintaining the client's sense of self
+								throughout the illness journey.
+							</p>
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
@@ -376,55 +294,157 @@
 									stroke-linejoin="round"
 								>
 									<circle cx="12" cy="12" r="10" />
-									<polyline points="12 6 12 12 16 14" />
+									<path d="M12 8v4l2 2" />
 								</svg>
 							</div>
-							<h3>Hours</h3>
+							<h3>Spiritual Respect</h3>
 							<p>
-								Our care coordination team is available
-								<strong>Monday – Saturday, 8am – 6pm</strong>
-								for enquiries and assessments.
+								Care that honours the client's faith, values,
+								and spiritual practices — creating space for
+								what matters most to the individual and their
+								family.
 							</p>
-							<p
-								style="font-size: 0.88rem; margin-top: 0.5rem"
-								class="muted"
-							>
-								For active care clients, 24/7 on-call support is
-								available throughout the care plan.
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+									/>
+								</svg>
+							</div>
+							<h3>Calm Environment Management</h3>
+							<p>
+								Practical adjustments to make the home setting
+								as peaceful and comfortable as possible —
+								lighting, noise management, scent, and sensory
+								comfort throughout.
 							</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="service-area-section">
+			<section class="section-bg-alt">
+				<div class="container two-col">
+					<div class="reveal">
+						<span class="eyebrow">Is This Right for You?</span>
+						<h2>
+							When palliative care at home is the right choice
+						</h2>
+						<ul class="bullet-list">
+							<li>
+								A loved one has a serious diagnosis — cancer,
+								organ failure, advanced neurological illness —
+								and comfort is the priority
+							</li>
+							<li>
+								The family wants their loved one to remain at
+								home, rather than spend their final period in a
+								hospital ward
+							</li>
+							<li>
+								Symptom management has become complex and
+								requires coordination beyond what the family can
+								provide
+							</li>
+							<li>
+								The family needs professional support alongside
+								their own caregiving — someone to share the
+								weight
+							</li>
+							<li>
+								Spiritual and cultural customs are important and
+								need to be honoured in the care approach
+							</li>
+							<li>
+								You want a consistent, compassionate face
+								present — someone who knows the client and the
+								family well
+							</li>
+						</ul>
+					</div>
+					<div class="reveal">
+						<span class="eyebrow">How We Deliver This Care</span>
+						<h2>Gentle, coordinated, and consistent</h2>
+						<div class="steps" style="margin-top: 1.5rem">
+							<div class="step">
+								<div class="step-num">1</div>
+								<div>
+									<h4>Family &amp; Client Meeting</h4>
+									<p>
+										We begin with a sensitive conversation —
+										understanding the client's wishes, the
+										family's needs, and the clinical picture
+										from the treating team.
+									</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-num">2</div>
+								<div>
+									<h4>Comfort-Centered Care Plan</h4>
+									<p>
+										A care plan focused on quality of life —
+										visit frequency, comfort procedures,
+										spiritual considerations, and family
+										communication cadence.
+									</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-num">3</div>
+								<div>
+									<h4>Consistent Compassionate Caregiver</h4>
+									<p>
+										The same caregiver is assigned
+										throughout — building trust,
+										familiarity, and genuine relationship
+										with the client and family over time.
+									</p>
+								</div>
+							</div>
+							<div class="step">
+								<div class="step-num">4</div>
+								<div>
+									<h4>Physician Coordination</h4>
+									<p>
+										Ongoing liaison with the palliative care
+										physician or treating team — ensuring
+										symptom management stays effective and
+										the care plan adapts as needed.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
 				<div class="container">
-					<div class="service-area-band reveal">
-						<div class="service-area-icon">
-							<svg
-								width="28"
-								height="28"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.8"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path
-									d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-								/>
-								<circle cx="12" cy="10" r="3" />
-							</svg>
-						</div>
-						<div class="service-area-content">
-							<span class="eyebrow">Where We Serve</span>
-							<h2>Care that comes home — across Kenya</h2>
-							<p>
-								Our trained caregivers travel to you, wherever
-								home is. Every visit, in your own space.
-							</p>
-						</div>
+					<div class="cta-strip reveal">
+						<h2>
+							We're here for the conversations that matter most
+						</h2>
+						<p>
+							Reaching out at this stage takes courage. We'll
+							listen carefully, with no pressure and complete
+							compassion — and help your family understand every
+							option available for care at home.
+						</p>
+						<a href="contact.html" class="btn btn-primary"
+							>Talk to a Care Coordinator</a
+						>
 					</div>
 				</div>
 			</section>

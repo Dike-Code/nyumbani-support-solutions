@@ -3,10 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Contact — Nyumbani Support Solutions</title>
+		<title>Equipment Rental Bundles — Nyumbani Support Solutions</title>
 		<meta
 			name="description"
-			content="Talk to a Nyumbani Support Solutions care coordinator. Request a free assessment, ask about services, or enquire about equipment — we serve families across Kenya."
+			content="Medical equipment rental bundles for home recovery across Kenya — hospital beds, wheelchairs, walkers, oxygen concentrators, commodes, and more. Delivered, set up, and family-trained."
 		/>
 		<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 		<link
@@ -60,13 +60,13 @@
 				<ul class="nav-links" id="nav-menu">
 					<li><a href="../index.html">Home</a></li>
 					<li><a href="about.html">About Us</a></li>
-					<li><a href="services.html">Services</a></li>
+					<li><a href="services.html" class="active">Services</a></li>
 					<li><a href="care-packages.html">Care Packages</a></li>
 					<li><a href="equipment.html">Equipment</a></li>
 					<li>
 						<a href="family-resources.html">Family Resources</a>
 					</li>
-					<li><a href="contact.html" class="active">Contact</a></li>
+					<li><a href="contact.html">Contact</a></li>
 				</ul>
 				<div class="nav-cta">
 					<button class="theme-toggle" aria-label="Toggle dark mode">
@@ -127,304 +127,281 @@
 			</div>
 		</header>
 		<main id="main">
-			<section class="page-hero">
-				<div class="container">
-					<div class="breadcrumb">
-						<a href="../index.html">Home</a> &nbsp;/&nbsp; Contact
+			<section class="hero">
+				<div class="container hero-inner">
+					<div class="reveal">
+						<div class="breadcrumb">
+							<a href="../index.html">Home</a> &nbsp;/&nbsp;
+							<a href="services.html">Services</a> &nbsp;/&nbsp;
+							Equipment Rental
+						</div>
+						<span class="eyebrow">Equipment Rental Bundles</span>
+						<h1>
+							Hospital-grade equipment, delivered to your home
+						</h1>
+						<p class="lede">
+							The right equipment makes the difference between a
+							safe recovery and a preventable crisis. We deliver,
+							set up, and train your family on everything — so
+							there's no guesswork about how to use it or whether
+							it's the right piece for your situation.
+						</p>
+						<div class="hero-cta">
+							<a href="contact.html" class="btn btn-primary"
+								>Request Equipment Assessment</a
+							>
+							<a href="equipment.html" class="btn btn-outline"
+								>Browse Full Catalog</a
+							>
+						</div>
 					</div>
-					<span class="eyebrow">Get In Touch</span>
-					<h1>Talk to a care coordinator</h1>
-					<p class="lede">
-						Send us a message and we'll respond within one business
-						day. There are no wrong questions — our job is to help
-						you understand your options and make the right decision
-						for your family.
-					</p>
+					<div class="hero-visual hero-photo reveal">
+						<img
+							src="../assets/photos/nyumbani-service-equipment.png"
+							alt="Nyumbani team delivering and setting up a hospital bed in a Kenyan family home"
+						/>
+					</div>
 				</div>
 			</section>
 
 			<section>
-				<div class="container two-col" style="align-items: flex-start">
-					<div class="reveal">
-						<h2>Send a message</h2>
+				<div class="container">
+					<div class="section-head reveal">
+						<span class="eyebrow">Equipment Categories</span>
+						<h2>Bundled by recovery scenario</h2>
 						<p>
-							Tell us a little about your loved one's situation
-							and what kind of support you're exploring. We'll
-							follow up with a warm, no-pressure conversation.
+							Rather than piecing together individual items, we
+							bundle equipment by the type of recovery — so every
+							piece works together and nothing is missing from day
+							one.
 						</p>
-						<form
-							class="form-grid mt-2"
-							action="mailto:info@nyumbanisupportsolutions.com"
-							method="POST"
-							enctype="text/plain"
-							onsubmit="
-								setTimeout(() => {
-									document.getElementById(
-										'contact-success',
-									).style.display = 'block';
-									this.style.display = 'none';
-								}, 200)
-							"
-						>
-							<div class="form-row">
-								<div class="field">
-									<label for="c-name">Your name</label>
-									<input
-										id="c-name"
-										name="Name"
-										type="text"
-										required
-										placeholder="Full name"
+					</div>
+					<div class="grid grid-4">
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<rect
+										x="3"
+										y="6"
+										width="18"
+										height="14"
+										rx="2"
 									/>
-								</div>
-								<div class="field">
-									<label for="c-phone">Phone number</label>
-									<input
-										id="c-phone"
-										name="Phone"
-										type="tel"
-										placeholder="+254 …"
+									<path
+										d="M7 6V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"
 									/>
-								</div>
+								</svg>
 							</div>
-							<div class="field">
-								<label for="c-email">Email address</label>
-								<input
-									id="c-email"
-									name="Email"
-									type="email"
-									required
-									placeholder="you@example.com"
-								/>
-							</div>
-							<div class="field">
-								<label for="c-care">Care needed</label>
-								<select id="c-care" name="Care needed">
-									<option value="">Please select…</option>
-									<option>Elderly Care at Home</option>
-									<option>Post-Discharge Recovery</option>
-									<option>
-										Skilled Nursing &amp; Oversight
-									</option>
-									<option>
-										Dementia &amp; Frailty Support
-									</option>
-									<option>
-										Palliative &amp; Comfort Care
-									</option>
-									<option>Equipment Rental</option>
-									<option>
-										Not sure yet — need guidance
-									</option>
-								</select>
-							</div>
-							<div class="field">
-								<label for="c-city">Your city</label>
-								<select id="c-city" name="City">
-									<option value="">Please select…</option>
-									<option>Nairobi</option>
-									<option>Mombasa</option>
-									<option>Kisumu</option>
-									<option>Eldoret</option>
-									<option>Nakuru</option>
-									<option>Naivasha</option>
-									<option>Thika</option>
-									<option>Karen</option>
-									<option>Kiambu</option>
-									<option>Westlands</option>
-									<option>Lavington</option>
-									<option>Parklands</option>
-									<option>Runda</option>
-									<option>Muthaiga</option>
-									<option>Nyali (Mombasa)</option>
-									<option>
-										Other — please mention in message
-									</option>
-								</select>
-							</div>
-							<div class="field">
-								<label for="c-msg">Your message</label>
-								<textarea
-									id="c-msg"
-									name="Message"
-									rows="5"
-									placeholder="Tell us about your loved one's situation, what kind of support you're looking for, and any urgent timeline we should know about…"
-								></textarea>
-							</div>
-							<button type="submit" class="btn btn-primary">
-								Send Message
-							</button>
-						</form>
-						<div
-							id="contact-success"
-							style="display: none; margin-top: 1.5rem"
-							class="card"
-						>
-							<h3>✓ Message sent</h3>
+							<h3>Mobility &amp; Independence</h3>
 							<p>
-								Thank you for reaching out. Your message has
-								been submitted to
-								<strong
-									>info@nyumbanisupportsolutions.com</strong
-								>. We'll be in touch within one business day.
+								Wheelchair, walker, quad cane, grab rails, and
+								non-slip mats — for clients recovering from
+								orthopaedic surgery, stroke, or hip fracture.
+							</p>
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+									/>
+								</svg>
+							</div>
+							<h3>Post-Surgery Recovery</h3>
+							<p>
+								Adjustable hospital bed, pressure-relief
+								mattress, commode, over-bed table, and patient
+								lift — for clients with limited mobility after
+								major surgery.
+							</p>
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+									<path
+										d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"
+									/>
+								</svg>
+							</div>
+							<h3>Respiratory Support</h3>
+							<p>
+								Oxygen concentrator, portable oxygen cylinder,
+								pulse oximeter, and nebuliser — for clients
+								managing COPD, pneumonia recovery, or chronic
+								respiratory conditions.
+							</p>
+						</div>
+						<div class="card reveal">
+							<div class="card-icon">
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path
+										d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+									/>
+								</svg>
+							</div>
+							<h3>Comfort &amp; Palliative</h3>
+							<p>
+								Comfort recliner, pressure-relief mattress,
+								bedside table, positioning wedges, and call bell
+								— for clients receiving palliative or long-term
+								care at home.
 							</p>
 						</div>
 					</div>
+					<div class="center mt-3 reveal">
+						<a href="equipment.html" class="btn btn-outline"
+							>View Individual Equipment Items</a
+						>
+					</div>
+				</div>
+			</section>
 
-					<div
-						class="reveal"
-						style="
-							display: flex;
-							flex-direction: column;
-							gap: 1.25rem;
-						"
-					>
-						<div class="card">
-							<div class="card-icon">
-								<svg
-									width="22"
-									height="22"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.8"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								>
-									<path
-										d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-									/>
-									<circle cx="12" cy="10" r="3" />
-								</svg>
+			<section class="section-bg-alt">
+				<div class="container two-col">
+					<div class="reveal">
+						<span class="eyebrow">Is This Right for You?</span>
+						<h2>When to request an equipment bundle</h2>
+						<ul class="bullet-list">
+							<li>
+								Your loved one is being discharged and the
+								hospital mentioned they'll need a hospital bed
+								or wheelchair
+							</li>
+							<li>
+								A family member has limited mobility after
+								surgery and the current home setup isn't safe
+							</li>
+							<li>
+								You need an oxygen concentrator or respiratory
+								equipment at home but don't know how to source
+								or use it
+							</li>
+							<li>
+								A senior is receiving palliative care at home
+								and needs comfort-focused equipment and
+								positioning aids
+							</li>
+							<li>
+								You want professional delivery and setup — not
+								equipment left in a box at the door
+							</li>
+							<li>
+								You need rental rather than purchase — for a
+								defined recovery period without the long-term
+								commitment
+							</li>
+						</ul>
+					</div>
+					<div class="reveal">
+						<span class="eyebrow"
+							>How Equipment Delivery Works</span
+						>
+						<h2>Setup on day one</h2>
+						<div class="steps" style="margin-top: 1.5rem">
+							<div class="step">
+								<div class="step-num">1</div>
+								<div>
+									<h4>Needs Assessment</h4>
+									<p>
+										We review the discharge notes, medical
+										situation, and home layout to identify
+										exactly which equipment is needed and
+										how to configure it safely.
+									</p>
+								</div>
 							</div>
-							<h3>Where We Serve</h3>
-							<p style="margin-top: 0.5rem">
-								Across Kenya — our caregivers travel to wherever
-								home is, in town or upcountry. When you reach
-								out, we'll confirm coverage in your specific
-								area.
-							</p>
-						</div>
-
-						<div class="card">
-							<div class="card-icon">
-								<svg
-									width="22"
-									height="22"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.8"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								>
-									<path
-										d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-									/>
-									<polyline points="22,6 12,13 2,6" />
-								</svg>
+							<div class="step">
+								<div class="step-num">2</div>
+								<div>
+									<h4>Bundle Confirmed &amp; Scheduled</h4>
+									<p>
+										We confirm the rental bundle, timeline,
+										and any additional items — and schedule
+										delivery to arrive before or on the day
+										of discharge.
+									</p>
+								</div>
 							</div>
-							<h3>Email Us</h3>
-							<p>
-								<a
-									href="mailto:info@nyumbanisupportsolutions.com"
-									>info@nyumbanisupportsolutions.com</a
-								>
-							</p>
-							<p
-								style="font-size: 0.88rem; margin-top: 0.25rem"
-								class="muted"
-							>
-								We respond within one business day.
-							</p>
-						</div>
-
-						<div class="card">
-							<div class="card-icon">
-								<svg
-									width="22"
-									height="22"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.8"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								>
-									<path
-										d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-									/>
-								</svg>
+							<div class="step">
+								<div class="step-num">3</div>
+								<div>
+									<h4>Delivery &amp; Setup</h4>
+									<p>
+										Our team delivers, assembles, and
+										correctly positions every item in the
+										home — including adjusting bed height,
+										installing safety rails, and checking
+										oxygen equipment.
+									</p>
+								</div>
 							</div>
-							<h3>Call &amp; WhatsApp</h3>
-							<p class="muted" style="font-size: 0.9rem">
-								Phone and WhatsApp contact details coming soon —
-								please use the form or email for now.
-							</p>
-						</div>
-
-						<div class="card">
-							<div class="card-icon">
-								<svg
-									width="22"
-									height="22"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.8"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								>
-									<circle cx="12" cy="12" r="10" />
-									<polyline points="12 6 12 12 16 14" />
-								</svg>
+							<div class="step">
+								<div class="step-num">4</div>
+								<div>
+									<h4>Family Training</h4>
+									<p>
+										We take time to walk the family through
+										how to use every piece of equipment
+										safely — including emergency procedures
+										and who to call if something changes.
+									</p>
+								</div>
 							</div>
-							<h3>Hours</h3>
-							<p>
-								Our care coordination team is available
-								<strong>Monday – Saturday, 8am – 6pm</strong>
-								for enquiries and assessments.
-							</p>
-							<p
-								style="font-size: 0.88rem; margin-top: 0.5rem"
-								class="muted"
-							>
-								For active care clients, 24/7 on-call support is
-								available throughout the care plan.
-							</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="service-area-section">
+			<section>
 				<div class="container">
-					<div class="service-area-band reveal">
-						<div class="service-area-icon">
-							<svg
-								width="28"
-								height="28"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.8"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path
-									d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-								/>
-								<circle cx="12" cy="10" r="3" />
-							</svg>
-						</div>
-						<div class="service-area-content">
-							<span class="eyebrow">Where We Serve</span>
-							<h2>Care that comes home — across Kenya</h2>
-							<p>
-								Our trained caregivers travel to you, wherever
-								home is. Every visit, in your own space.
-							</p>
-						</div>
+					<div class="cta-strip reveal">
+						<h2>Need equipment before discharge day?</h2>
+						<p>
+							Contact us as early as possible — ideally 24–48
+							hours before discharge. We'll coordinate with the
+							hospital, confirm what's needed, and have everything
+							set up and ready when your loved one comes home.
+						</p>
+						<a href="contact.html" class="btn btn-primary"
+							>Request Equipment Now</a
+						>
 					</div>
 				</div>
 			</section>
