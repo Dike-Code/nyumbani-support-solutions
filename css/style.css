@@ -1765,3 +1765,372 @@ section {
 		grid-template-columns: 1fr;
 	}
 }
+
+/* === Floating WhatsApp Chat Button (FAB) === */
+.whatsapp-fab {
+	position: fixed;
+	bottom: 1.5rem;
+	right: 1.5rem;
+	z-index: 999;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: #25d366;
+	color: #fff;
+	text-decoration: none;
+	box-shadow:
+		0 8px 22px rgba(37, 211, 102, 0.35),
+		0 2px 6px rgba(0, 0, 0, 0.18);
+	transition:
+		transform 0.25s ease,
+		box-shadow 0.25s ease,
+		background 0.25s ease;
+	animation: whatsappPulse 2.4s ease-in-out infinite;
+}
+.whatsapp-fab:hover,
+.whatsapp-fab:focus-visible {
+	background: #128c7e;
+	transform: translateY(-2px) scale(1.05);
+	box-shadow:
+		0 12px 28px rgba(37, 211, 102, 0.45),
+		0 4px 10px rgba(0, 0, 0, 0.22);
+	animation: none;
+	outline: none;
+}
+.whatsapp-fab svg {
+	width: 30px;
+	height: 30px;
+	display: block;
+}
+.whatsapp-fab-tooltip {
+	position: absolute;
+	right: calc(100% + 12px);
+	top: 50%;
+	transform: translateY(-50%);
+	background: #1a1a1a;
+	color: #fff;
+	padding: 0.55rem 0.9rem;
+	border-radius: 8px;
+	font-size: 0.85rem;
+	font-weight: 500;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.whatsapp-fab-tooltip::after {
+	content: "";
+	position: absolute;
+	left: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 6px solid transparent;
+	border-left-color: #1a1a1a;
+}
+.whatsapp-fab:hover .whatsapp-fab-tooltip,
+.whatsapp-fab:focus-visible .whatsapp-fab-tooltip {
+	opacity: 1;
+	transform: translateY(-50%) translateX(-3px);
+}
+@keyframes whatsappPulse {
+	0%,
+	100% {
+		box-shadow:
+			0 8px 22px rgba(37, 211, 102, 0.35),
+			0 2px 6px rgba(0, 0, 0, 0.18),
+			0 0 0 0 rgba(37, 211, 102, 0.5);
+	}
+	50% {
+		box-shadow:
+			0 8px 22px rgba(37, 211, 102, 0.35),
+			0 2px 6px rgba(0, 0, 0, 0.18),
+			0 0 0 14px rgba(37, 211, 102, 0);
+	}
+}
+@media (max-width: 600px) {
+	.whatsapp-fab {
+		bottom: 1rem;
+		right: 1rem;
+		width: 54px;
+		height: 54px;
+	}
+	.whatsapp-fab svg {
+		width: 26px;
+		height: 26px;
+	}
+	.whatsapp-fab-tooltip {
+		display: none;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.whatsapp-fab {
+		animation: none;
+	}
+}
+
+/* === Contact card phone/whatsapp rows === */
+.contact-line {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+	margin-top: 0.35rem;
+	font-weight: 500;
+}
+.contact-line a {
+	color: var(--color-primary);
+	text-decoration: none;
+	font-weight: 600;
+}
+.contact-line a:hover {
+	text-decoration: underline;
+}
+[data-theme="dark"] .contact-line a {
+	color: var(--color-accent);
+}
+
+.contact-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	margin-top: 1rem;
+}
+.btn-whatsapp {
+	background: #25d366;
+	color: #fff;
+	border: 1px solid #25d366;
+}
+.btn-whatsapp:hover {
+	background: #1ebd5b;
+	border-color: #1ebd5b;
+	color: #fff;
+}
+
+/* === MailerLite form success state === */
+.form-success {
+	background: linear-gradient(
+		180deg,
+		rgba(15, 52, 49, 0.04),
+		rgba(197, 145, 106, 0.06)
+	);
+	border: 1px solid var(--color-line);
+	border-radius: 14px;
+	padding: 1.5rem 1.5rem 1.6rem;
+	margin-top: 1rem;
+}
+.form-success h3 {
+	margin: 0 0 0.4rem;
+	color: var(--color-primary);
+}
+[data-theme="dark"] .form-success h3 {
+	color: var(--color-accent);
+}
+.form-success .small-fallback {
+	display: inline-block;
+	margin-top: 0.65rem;
+	font-size: 0.85rem;
+	color: var(--text-muted);
+}
+.form-success .small-fallback a {
+	color: var(--color-primary);
+	text-decoration: underline;
+}
+[data-theme="dark"] .form-success .small-fallback a {
+	color: var(--color-accent);
+}
+
+.form-error {
+	margin-top: 0.85rem;
+	padding: 0.65rem 0.85rem;
+	background: rgba(168, 50, 50, 0.08);
+	border: 1px solid rgba(168, 50, 50, 0.25);
+	border-radius: 10px;
+	color: #882727;
+	font-size: 0.88rem;
+}
+[data-theme="dark"] .form-error {
+	color: #f0a6a6;
+}
+
+/* === Lead magnet section (family resources) === */
+.lead-magnet {
+	background: linear-gradient(135deg, #0f3431 0%, #0a2624 100%);
+	color: #f5f1ea;
+	border-radius: 22px;
+	padding: 2.5rem;
+	display: grid;
+	grid-template-columns: 1.05fr 1fr;
+	gap: 2.5rem;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+}
+.lead-magnet::before {
+	content: "";
+	position: absolute;
+	top: -40%;
+	right: -10%;
+	width: 60%;
+	height: 180%;
+	background: radial-gradient(
+		circle,
+		rgba(197, 145, 106, 0.18) 0%,
+		transparent 60%
+	);
+	pointer-events: none;
+}
+.lead-magnet > * {
+	position: relative;
+	z-index: 1;
+}
+.lead-magnet .eyebrow {
+	color: var(--color-accent);
+}
+.lead-magnet h2 {
+	color: #ffffff;
+	margin-bottom: 0.6rem;
+}
+.lead-magnet p {
+	color: rgba(245, 241, 234, 0.85);
+}
+.lead-magnet ul {
+	list-style: none;
+	padding: 0;
+	margin: 1rem 0 0;
+	display: grid;
+	gap: 0.5rem;
+}
+.lead-magnet ul li {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.55rem;
+	font-size: 0.95rem;
+	color: rgba(245, 241, 234, 0.92);
+}
+.lead-magnet ul li svg {
+	color: var(--color-accent);
+	flex: 0 0 18px;
+	margin-top: 3px;
+}
+
+.lead-form {
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(197, 145, 106, 0.25);
+	border-radius: 16px;
+	padding: 1.5rem;
+}
+.lead-form .field label {
+	color: #f5f1ea;
+}
+.lead-form .field input {
+	background: rgba(255, 255, 255, 0.92);
+	color: #1f2d2a;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.lead-form .field input:focus {
+	background: #fff;
+}
+.lead-form .form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.75rem;
+}
+.lead-form .privacy-note {
+	font-size: 0.78rem;
+	color: rgba(245, 241, 234, 0.7);
+	margin-top: 0.75rem;
+}
+.lead-form button[type="submit"] {
+	width: 100%;
+	margin-top: 0.85rem;
+}
+.lead-form .honeypot {
+	position: absolute;
+	left: -10000px;
+	height: 0;
+	overflow: hidden;
+}
+
+@media (max-width: 880px) {
+	.lead-magnet {
+		grid-template-columns: 1fr;
+		padding: 1.85rem;
+		gap: 1.5rem;
+	}
+	.lead-form .form-row {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* === MailerLite footer note (dev handoff visual cue) === */
+.ml-note {
+	display: none;
+}
+
+/* ===== Care Packages Photo Gallery ===== */
+.care-gallery-3 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.25rem;
+	margin: 0 auto 2.5rem;
+}
+.care-gallery-3 figure {
+	margin: 0;
+	border-radius: var(--radius);
+	overflow: hidden;
+	box-shadow: 0 20px 40px -20px rgba(15, 52, 49, 0.25);
+	background: var(--color-bg);
+	display: flex;
+	flex-direction: column;
+}
+.care-gallery-3 figure .img-wrap {
+	width: 100%;
+	aspect-ratio: 4/3;
+	overflow: hidden;
+}
+.care-gallery-3 figure img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 40%;
+	display: block;
+	transition: transform 0.6s ease;
+}
+.care-gallery-3 figure:hover img {
+	transform: scale(1.04);
+}
+.care-gallery-3 figcaption {
+	padding: 1rem 1.1rem 1.15rem;
+	font-family: var(--font-display, var(--font-body));
+	font-size: 0.95rem;
+	font-weight: 500;
+	color: var(--color-text);
+	letter-spacing: 0.01em;
+	line-height: 1.35;
+}
+.care-gallery-3 figcaption .cap-eyebrow {
+	display: block;
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-accent-700, #a87653);
+	margin-bottom: 0.35rem;
+}
+[data-theme="dark"] .care-gallery-3 figcaption .cap-eyebrow {
+	color: var(--color-accent, #c5916a);
+}
+@media (max-width: 900px) {
+	.care-gallery-3 {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+	.care-gallery-3 figure .img-wrap {
+		aspect-ratio: 16/9;
+	}
+}
