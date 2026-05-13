@@ -194,6 +194,25 @@ section {
 .grid-4 {
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
+.grid-5 {
+	grid-template-columns: repeat(5, 1fr);
+	gap: clamp(1rem, 2vw, 1.5rem);
+}
+@media (max-width: 1100px) {
+	.grid-5 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media (max-width: 720px) {
+	.grid-5 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (max-width: 480px) {
+	.grid-5 {
+		grid-template-columns: 1fr;
+	}
+}
 
 .center-text {
 	text-align: center;
@@ -569,6 +588,65 @@ section {
 		transform 0.3s var(--ease),
 		box-shadow 0.3s var(--ease),
 		border-color 0.3s var(--ease);
+}
+
+/* Articles grid — used on Family Resources page */
+.articles-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: clamp(1.5rem, 3vw, 2.5rem);
+	align-items: stretch;
+}
+@media (max-width: 900px) {
+	.articles-grid {
+		grid-template-columns: 1fr;
+	}
+}
+.article-card {
+	background: var(--color-surface);
+	border: 1px solid var(--color-line);
+	border-radius: var(--radius-lg);
+	padding: clamp(1.75rem, 3vw, 2.5rem);
+	scroll-margin-top: 90px;
+	transition:
+		transform 0.3s var(--ease),
+		box-shadow 0.3s var(--ease),
+		border-color 0.3s var(--ease);
+}
+.article-card:hover {
+	box-shadow: var(--shadow-md);
+	border-color: var(--color-accent);
+}
+.article-card .eyebrow {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+}
+.article-card h2 {
+	margin: 0.25rem 0 1rem 0;
+	font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+	line-height: 1.25;
+}
+.article-card .lede {
+	font-size: 1.05rem;
+	margin-bottom: 1.25rem;
+}
+.article-card p {
+	margin: 0 0 1rem 0;
+}
+.article-card ul {
+	margin: 0.5rem 0 1.25rem 0;
+}
+/* The 5th (odd) article spans both columns so it doesn't sit awkwardly alone */
+.articles-grid > .article-card:nth-child(5) {
+	grid-column: 1 / -1;
+	max-width: 900px;
+	margin: 0 auto;
+	width: 100%;
+}
+@media (max-width: 900px) {
+	.articles-grid > .article-card:nth-child(5) {
+		max-width: none;
+	}
 }
 .card:hover {
 	transform: translateY(-4px);
