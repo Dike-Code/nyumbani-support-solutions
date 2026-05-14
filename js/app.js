@@ -191,72 +191,76 @@
 // });
 
 document.addEventListener("DOMContentLoaded", () => {
-	document.querySelectorAll("form[data-formspree]").forEach((form) => {
-		form.addEventListener("submit", async (e) => {
-			e.preventDefault();
+	document
+		.querySelectorAll('form[action*="formspree.io"]')
+		.forEach((form) => {
+			form.addEventListener("submit", async (e) => {
+				e.preventDefault();
 
-			const successEl = form.parentElement.querySelector(".form-success");
+				const successEl =
+					form.parentElement.querySelector(".form-success");
 
-			const errorEl = form.parentElement.querySelector(".form-error");
+				const errorEl = form.parentElement.querySelector(".form-error");
 
-			const submitBtn = form.querySelector('button[type="submit"]');
+				const submitBtn = form.querySelector('button[type="submit"]');
 
-			// Hide previous messages
-			if (errorEl) errorEl.style.display = "none";
-			if (successEl) successEl.style.display = "none";
+				if (errorEl) errorEl.style.display = "none";
 
-			// Loading state
-			if (submitBtn) {
-				submitBtn.disabled = true;
-				submitBtn.dataset.originalText = submitBtn.textContent;
+				if (successEl) successEl.style.display = "none";
 
-				submitBtn.textContent = "Sending...";
-			}
+				// Button loading state
+				if (submitBtn) {
+					submitBtn.disabled = true;
 
-			try {
-				const response = await fetch(form.action, {
-					method: "POST",
-					body: new FormData(form),
-					headers: {
-						Accept: "application/json",
-					},
-				});
+					submitBtn.dataset.original = submitBtn.textContent;
 
-				const result = await response.json();
+					submitBtn.textContent = "Sending...";
+				}
 
-				if (response.ok) {
-					// Hide form
-					form.style.display = "none";
+				try {
+					const response = await fetch(form.action, {
+						method: form.method,
+						body: new FormData(form),
+						headers: {
+							Accept: "application/json",
+						},
+					});
 
-					// Show your custom success box
-					if (successEl) {
-						successEl.style.display = "block";
+					const result = await response.json();
+
+					if (response.ok) {
+						// Hide form
+						form.style.display = "none";
+
+						// Show success message
+						if (successEl) {
+							successEl.style.display = "block";
+						}
+
+						form.reset();
+					} else {
+						throw new Error(
+							result.errors?.[0]?.message || "Submission failed",
+						);
 					}
+				} catch (err) {
+					console.error("Form error:", err);
 
-					form.reset();
-				} else {
-					throw new Error(
-						result.errors?.[0]?.message || "Submission failed",
-					);
+					if (errorEl) {
+						errorEl.textContent =
+							err.message ||
+							"Something went wrong sending your request.";
+
+						errorEl.style.display = "block";
+					}
 				}
-			} catch (err) {
-				console.error("Formspree error:", err);
 
-				if (errorEl) {
-					errorEl.textContent =
-						err.message ||
-						"Something went wrong. Please try again.";
+				if (submitBtn) {
+					submitBtn.disabled = false;
 
-					errorEl.style.display = "block";
+					submitBtn.textContent =
+						submitBtn.dataset.original || "Submit";
 				}
-			}
-
-			// Restore button state
-			if (submitBtn) {
-				submitBtn.disabled = false;
-				submitBtn.textContent =
-					submitBtn.dataset.originalText || "Submit";
-			}
+			});
 		});
-	});
 });
