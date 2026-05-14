@@ -201,13 +201,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			const submitBtn = form.querySelector('button[type="submit"]');
 
-			if (errorEl) {
-				errorEl.style.display = "none";
-			}
+			// Hide previous messages
+			if (errorEl) errorEl.style.display = "none";
+			if (successEl) successEl.style.display = "none";
 
+			// Loading state
 			if (submitBtn) {
 				submitBtn.disabled = true;
-				submitBtn.dataset.original = submitBtn.textContent;
+				submitBtn.dataset.originalText = submitBtn.textContent;
 
 				submitBtn.textContent = "Sending...";
 			}
@@ -221,32 +222,40 @@ document.addEventListener("DOMContentLoaded", () => {
 					},
 				});
 
+				const result = await response.json();
+
 				if (response.ok) {
+					// Hide form
 					form.style.display = "none";
 
+					// Show your custom success box
 					if (successEl) {
 						successEl.style.display = "block";
 					}
 
 					form.reset();
 				} else {
-					throw new Error("Form submission failed");
+					throw new Error(
+						result.errors?.[0]?.message || "Submission failed",
+					);
 				}
 			} catch (err) {
-				console.error(err);
+				console.error("Formspree error:", err);
 
 				if (errorEl) {
 					errorEl.textContent =
-						"Something went wrong sending your request. Please email info@nyumbanisupportsolutions.com directly.";
+						err.message ||
+						"Something went wrong. Please try again.";
 
 					errorEl.style.display = "block";
 				}
 			}
 
+			// Restore button state
 			if (submitBtn) {
 				submitBtn.disabled = false;
-
-				submitBtn.textContent = submitBtn.dataset.original || "Submit";
+				submitBtn.textContent =
+					submitBtn.dataset.originalText || "Submit";
 			}
 		});
 	});
