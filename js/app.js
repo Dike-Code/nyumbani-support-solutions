@@ -93,7 +93,6 @@ window.nyumbaniMlSubscribe = async function ({
 	const ACCOUNT_ID = "REPLACE_WITH_MAILERLITE_ACCOUNT_ID";
 	const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${formId}/subscribe`;
 
-	// Honeypot check
 	if (data._gotcha) {
 		if (onSuccess) onSuccess();
 		return;
@@ -120,7 +119,6 @@ window.nyumbaniMlSubscribe = async function ({
 			body: payload.toString(),
 		});
 
-		// no-cors responses are opaque — we treat any non-throw as success
 		if (onSuccess) onSuccess();
 	} catch (err) {
 		console.error("MailerLite subscribe error:", err);
@@ -128,17 +126,24 @@ window.nyumbaniMlSubscribe = async function ({
 	}
 };
 
-// =====================================================================
-// Wire up forms automatically — opt-in via [data-ml-form]
-// =====================================================================
 document.addEventListener("DOMContentLoaded", () => {
 	document.querySelectorAll("form[data-ml-form]").forEach((form) => {
 		form.addEventListener("submit", async (e) => {
 			e.preventDefault();
+
 			const formId = form.dataset.mlFormId;
 			const groupId = form.dataset.mlGroupId;
-			const successEl = form.parentElement.querySelector(".form-success");
-			const errorEl = form.parentElement.querySelector(".form-error");
+
+			// Safe DOM traversal that doesn't rely on wrapper divs
+			const errorEl = form.querySelector(".form-error");
+			const successEl =
+				(
+					form.nextElementSibling &&
+					form.nextElementSibling.classList.contains("form-success")
+				) ?
+					form.nextElementSibling
+				:	form.parentElement.querySelector(".form-success");
+
 			const submitBtn = form.querySelector('button[type="submit"]');
 
 			const fd = new FormData(form);
@@ -153,7 +158,36 @@ document.addEventListener("DOMContentLoaded", () => {
 				_gotcha: (fd.get("_gotcha") || "").toString().trim(),
 			};
 
-			if (errorEl) errorEl.style.display = "none";
+			// Clear previous states
+			if (errorEl) {
+				errorEl.style.display = "none";
+				errorEl.textContent = "";
+			}
+
+			// Validation Logic
+			let validationErrors = [];
+
+			if (!data.first_name)
+				validationErrors.push("First name is required.");
+			if (!data.last_name)
+				validationErrors.push("Last name is required.");
+
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!data.email) {
+				validationErrors.push("Email address is required.");
+			} else if (!emailRegex.test(data.email)) {
+				validationErrors.push("Please enter a valid email address.");
+			}
+
+			// Stop execution if errors are caught
+			if (validationErrors.length > 0) {
+				if (errorEl) {
+					errorEl.innerHTML = validationErrors.join("<br>");
+					errorEl.style.display = "block";
+				}
+				return;
+			}
+
 			if (submitBtn) {
 				submitBtn.disabled = true;
 				submitBtn.dataset.origLabel = submitBtn.textContent;
