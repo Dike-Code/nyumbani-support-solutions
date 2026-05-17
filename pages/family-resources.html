@@ -33,6 +33,38 @@
 		/>
 	</head>
 	<style>
+		.grid {
+			display: grid;
+			gap: clamp(1.25rem, 3vw, 2rem);
+		}
+		.grid-2 {
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		}
+		.grid-3 {
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		}
+		.grid-4 {
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		}
+		.grid-5 {
+			grid-template-columns: repeat(5, 1fr);
+			gap: clamp(1rem, 2vw, 1.5rem);
+		}
+		@media (max-width: 1100px) {
+			.grid-5 {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+		@media (max-width: 720px) {
+			.grid-5 {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+		@media (max-width: 480px) {
+			.grid-5 {
+				grid-template-columns: 1fr;
+			}
+		}
 		.articles-grid {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
