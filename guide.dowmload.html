@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Thank You for Joining Us</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap"
+			rel="stylesheet"
+		/>
+
+		<style>
+			/* Modern CSS Variables for Minimal Luxury Aesthetic */
+			:root {
+				--bg-color: #0d1f1e; /* Soft, warm luxury off-white */
+				--text-main: #1e2229; /* Deep slate/charcoal */
+				--text-muted: #626873; /* Sophisticated cool gray */
+				--accent: #2c3e50; /* Deep corporate blue/slate */
+				--accent-light: #eef2f5; /* Subtle tinted accent fill */
+				--white: #ffffff;
+				--font-display: "Montserrat", sans-serif;
+				--font-body: "Poppins", sans-serif;
+				--transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+			}
+
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				background-color: var(--bg-color);
+				color: var(--text-main);
+				font-family: var(--font-body);
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 24px;
+				overflow-x: hidden;
+			}
+
+			/* Card Container Styling with Soft Shadow Depth */
+			.thank-you-card {
+				background-color: var(--white);
+				max-width: 580px;
+				width: 100%;
+				padding: 60px 45px;
+				border-radius: 4px; /* Minimalist clean edge */
+				box-shadow:
+					0 20px 40px rgba(0, 0, 0, 0.03),
+					0 1px 3px rgba(0, 0, 0, 0.02);
+				text-align: center;
+				position: relative;
+				animation: fadeInUp 0.8s ease-out;
+			}
+
+			/* Minimal Graphic Accent instead of a standard icon */
+			.accent-icon {
+				width: 56px;
+				height: 56px;
+				background-color: var(--accent-light);
+				color: var(--accent);
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 50%;
+				margin-bottom: 32px;
+			}
+
+			.accent-icon svg {
+				width: 24px;
+				height: 24px;
+				stroke-width: 2.5;
+			}
+
+			h1 {
+				font-family: var(--font-display);
+				font-size: 28px;
+				font-weight: 700;
+				letter-spacing: -0.5px;
+				line-height: 1.2;
+				margin-bottom: 16px;
+				color: var(--text-main);
+			}
+
+			.subtitle {
+				font-size: 15px;
+				color: var(--text-muted);
+				line-height: 1.6;
+				margin-bottom: 36px;
+				font-weight: 400;
+			}
+
+			/* Next Steps Information Block */
+			.next-steps {
+				background-color: var(--bg-color);
+				border-left: 3px solid var(--accent);
+				padding: 20px 24px;
+				text-align: left;
+				margin-bottom: 40px;
+				border-radius: 0 4px 4px 0;
+			}
+
+			.next-steps h3 {
+				font-family: var(--font-display);
+				font-size: 13px;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				margin-bottom: 8px;
+				color: var(--accent);
+			}
+
+			.next-steps p {
+				font-size: 13.5px;
+				color: var(--white);
+				line-height: 1.5;
+			}
+
+			/* Premium Minimal Button Styling */
+			.btn-container {
+				display: flex;
+				flex-direction: column;
+				gap: 12px;
+				align-items: center;
+			}
+
+			.btn-primary {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background-color: var(--bg-color);
+				color: var(--white);
+				text-decoration: none;
+				padding: 14px 32px;
+				font-family: var(--font-display);
+				font-size: 13px;
+				font-weight: 600;
+				letter-spacing: 0.8px;
+				text-transform: uppercase;
+				border-radius: 4px;
+				width: 100%;
+				transition: var(--transition);
+				border: 1px solid var(--text-main);
+			}
+
+			.btn-primary:hover {
+				background-color: transparent;
+				color: var(--text-main);
+				transform: translateY(-2px);
+			}
+
+			.btn-secondary {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--text-muted);
+				text-decoration: none;
+				padding: 10px 20px;
+				font-size: 13px;
+				font-weight: 500;
+				transition: var(--transition);
+			}
+
+			.btn-secondary:hover {
+				color: var(--text-main);
+			}
+
+			/* Smooth Entry Animation */
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* Responsive Tweaks */
+			@media (max-width: 480px) {
+				.thank-you-card {
+					padding: 45px 24px;
+				}
+				h1 {
+					font-size: 24px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="thank-you-card">
+			<div class="accent-icon">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M5 13l4 4L19 7"
+					/>
+				</svg>
+			</div>
+
+			<h1>Thank You!!!</h1>
+
+			<div class="next-steps">
+				<h3>Next Step</h3>
+				<h3>✓ Check your inbox</h3>
+				<p>
+					Your guide is on its way. We've sent it to your email along
+					with a small welcome note from our care team — if it doesn't
+					arrive within a few minutes, please check your spam folder.
+				</p>
+				<span class="small-fallback"
+					>Need it now?
+					<a
+						class="btn-primary"
+						href="../downloads/nyumbani-after-discharge-guide.pdf"
+						download
+						>Download the PDF directly →</a
+					></span
+				>
+			</div>
+
+			<div class="btn-container">
+				<a href="/" class="btn-primary">Return to Homepage</a>
+				<a href="./pages/contact.html" class="btn-secondary">Go Back</a>
+			</div>
+		</div>
+	</body>
+</html>
