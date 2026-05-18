@@ -113,7 +113,9 @@ window.nyumbaniMlSubscribe = function ({ formId, groupId, data }) {
 	});
 };
 
-// MailerLite Form Submission Listener
+// =====================================================================
+// Updated MailerLite-Only Form Handler with Strict Error Reporting
+// =====================================================================
 document.addEventListener("DOMContentLoaded", () => {
 	document.querySelectorAll("form[data-ml-form]").forEach((form) => {
 		form.addEventListener("submit", async (e) => {
@@ -123,10 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			const groupId = form.dataset.mlGroupId;
 
 			const errorEl = form.querySelector(".form-error");
-
-			// FIX: Scoped target lookup ensures we fetch the *immediate* sibling success message block
 			const successEl = form.parentElement.querySelector(".form-success");
-
 			const submitBtn = form.querySelector('button[type="submit"]');
 			const fd = new FormData(form);
 
@@ -173,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			if (submitBtn) {
 				submitBtn.disabled = true;
-				// FIX: Added .trim() to ensure raw spacing inside button HTML template doesn't mess with UI styles
 				submitBtn.dataset.origLabel = submitBtn.textContent.trim();
 				submitBtn.textContent = "Sending…";
 			}
@@ -187,29 +185,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				console.log("MailerLite Debug Log:", mailerLiteRes);
 
-				// FIX: Strict check verifying MailerLite explicitly marked JSON response true
-				if (mailerLiteRes && mailerLiteRes.success === true) {
+				// Evaluate strict response conditions
+				if (
+					mailerLiteRes &&
+					(mailerLiteRes.success === true || mailerLiteRes.id)
+				) {
 					form.style.display = "none";
 					if (successEl) successEl.style.display = "block";
 					form.reset();
 				} else {
-					// Check for API custom server message errors
-					const serverError =
-						mailerLiteRes?.errors?.email?.[0] ||
-						"MailerLite submission invalid response";
-					throw new Error(serverError);
+					// Extract exact server validation responses if available
+					let serverMessage = "Submission rejected by MailerLite.";
+					if (mailerLiteRes && mailerLiteRes.errors) {
+						serverMessage +=
+							" Details: " + JSON.stringify(mailerLiteRes.errors);
+					} else if (mailerLiteRes && mailerLiteRes.error) {
+						serverMessage += " Error: " + mailerLiteRes.error;
+					}
+					throw new Error(serverMessage);
 				}
 			} catch (err) {
-				console.error("Submission error:", err);
+				console.error("Submission error details:", err);
 				if (errorEl) {
-					errorEl.textContent =
-						"Something went wrong sending your message. Please email info@nyumbanisupportsolutions.com directly.";
+					// Prints the exact technical issue on your page to see what's wrong instantly
+					errorEl.innerHTML = `<strong>Submission Error:</strong> ${err.message}<br><br><span style="font-size: 0.85em;">Please check your Account ID, Form ID, or contact info@nyumbanisupportsolutions.com if this persists.</span>`;
 					errorEl.style.display = "block";
 				}
 			} finally {
 				if (submitBtn) {
 					submitBtn.disabled = false;
-					// FIX: Safely fallback directly back to the original layout text
 					submitBtn.textContent =
 						submitBtn.dataset.origLabel || "Send Me the Guide";
 				}
