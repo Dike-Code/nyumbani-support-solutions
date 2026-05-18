@@ -84,7 +84,7 @@
 // MailerLite IDs once the account is approved. See README-DEV.md.
 // =====================================================================
 window.nyumbaniMlSubscribe = async function ({ formId, groupId, data }) {
-	const ACCOUNT_ID = "REPLACE_WITH_MAILERLITE_ACCOUNT_ID";
+	const ACCOUNT_ID = "2342537";
 	const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${formId}/subscribe`;
 
 	if (data._gotcha) {
