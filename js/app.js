@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			// Pull Formspree Action URL directly from the form attribute, or hardcode it
 			const formspreeEndpoint =
 				form.getAttribute("action") ||
-				"https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT_OR_ID";
+				"https://formspree.io/f/mlgvebbl";
 
 			const errorEl = form.querySelector(".form-error");
 			const successEl =
