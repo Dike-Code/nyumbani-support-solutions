@@ -67,7 +67,7 @@
 // MailerLite subscribe helper — used by all forms on the site
 // =====================================================================
 window.nyumbaniMlSubscribe = function ({ formId, groupId, data }) {
-	const ACCOUNT_ID = "2342537";
+	const ACCOUNT_ID = "2342537"; // Replace with your actual MailerLite Account ID
 	const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${formId}/subscribe`;
 
 	if (data._gotcha) {
