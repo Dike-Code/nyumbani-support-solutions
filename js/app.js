@@ -90,7 +90,7 @@ window.nyumbaniMlSubscribe = async function ({
 	onSuccess,
 	onError,
 }) {
-	const ACCOUNT_ID = "2342537"; // REPLACE_WITH_ACCOUNT_ID
+	const ACCOUNT_ID = "REPLACE_WITH_MAILERLITE_ACCOUNT_ID";
 	const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${formId}/subscribe`;
 
 	// Honeypot check
