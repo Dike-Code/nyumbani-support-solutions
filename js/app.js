@@ -84,6 +84,7 @@
 // MailerLite IDs once the account is approved. See README-DEV.md.
 // =====================================================================
 // 1. Updated MailerLite Subscription Handler (Bypasses CORS restrictions)
+// 1. MailerLite Subscription Handler
 window.nyumbaniMlSubscribe = function ({ formId, groupId, data }) {
 	const ACCOUNT_ID = "2342537";
 	const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${formId}/subscribe`;
@@ -96,11 +97,6 @@ window.nyumbaniMlSubscribe = function ({ formId, groupId, data }) {
 	params.append("fields[email]", data.email || "");
 	if (data.first_name) params.append("fields[name]", data.first_name);
 	if (data.last_name) params.append("fields[last_name]", data.last_name);
-	if (data.phone) params.append("fields[phone]", data.phone);
-	if (data.care_needed)
-		params.append("fields[care_needed]", data.care_needed);
-	if (data.city) params.append("fields[city]", data.city);
-	if (data.message) params.append("fields[message]", data.message);
 
 	if (groupId) params.append("groups[]", groupId);
 	params.append("ajax", "1");
@@ -130,7 +126,7 @@ window.nyumbaniMlSubscribe = function ({ formId, groupId, data }) {
 	});
 };
 
-// 2. Dual Form Handler (Formspree + MailerLite)
+// 2. MailerLite-Only Form Handler
 document.addEventListener("DOMContentLoaded", () => {
 	document.querySelectorAll("form[data-ml-form]").forEach((form) => {
 		form.addEventListener("submit", async (e) => {
@@ -138,9 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			const formId = form.dataset.mlFormId;
 			const groupId = form.dataset.mlGroupId;
-			const formspreeEndpoint =
-				form.getAttribute("action") ||
-				"https://formspree.io/f/mlgvebbl";
 
 			const errorEl = form.querySelector(".form-error");
 			const successEl =
@@ -158,10 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				first_name: (fd.get("first_name") || "").toString().trim(),
 				last_name: (fd.get("last_name") || "").toString().trim(),
 				email: (fd.get("email") || "").toString().trim(),
-				phone: (fd.get("phone") || "").toString().trim(),
-				care_needed: (fd.get("care_needed") || "").toString().trim(),
-				city: (fd.get("city") || "").toString().trim(),
-				message: (fd.get("message") || "").toString().trim(),
 				_gotcha: (fd.get("_gotcha") || "").toString().trim(),
 			};
 
@@ -206,27 +195,24 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 
 			try {
-				// Simultaneously fire both requests and await results safely
-				const [mailerLiteRes, formspreeRes] = await Promise.all([
-					window.nyumbaniMlSubscribe({ formId, groupId, data }),
-					fetch(formspreeEndpoint, {
-						method: "POST",
-						body: fd,
-						headers: { Accept: "application/json" },
-					}),
-				]);
+				// Submit only to MailerLite
+				const mailerLiteRes = await window.nyumbaniMlSubscribe({
+					formId,
+					groupId,
+					data,
+				});
 
-				// Check Formspree's standard response structure
-				if (formspreeRes.ok) {
+				// MailerLite returns JSONP data with a global response packet
+				if (
+					mailerLiteRes &&
+					(mailerLiteRes.success || mailerLiteRes.id)
+				) {
 					form.style.display = "none";
 					if (successEl) successEl.style.display = "block";
 					form.reset();
 				} else {
-					throw new Error("Formspree submission failed");
+					throw new Error("MailerLite submission rejected");
 				}
-
-				// Optional log to track MailerLite API responses internally
-				console.log("MailerLite raw response packet:", mailerLiteRes);
 			} catch (err) {
 				console.error("Submission error:", err);
 				if (errorEl) {
