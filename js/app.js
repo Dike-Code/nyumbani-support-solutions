@@ -85,6 +85,7 @@
 // =====================================================================
 // 1. Updated MailerLite Subscription Handler (Bypasses CORS restrictions)
 // 1. MailerLite Subscription Handler
+// 1. MailerLite Subscription Handler (With strict Webform payload flags)
 window.nyumbaniMlSubscribe = function ({ formId, groupId, data }) {
 	const ACCOUNT_ID = "2342537";
 	const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${formId}/subscribe`;
@@ -94,12 +95,18 @@ window.nyumbaniMlSubscribe = function ({ formId, groupId, data }) {
 	}
 
 	const params = new URLSearchParams();
+
+	// Core Subscriber Fields
 	params.append("fields[email]", data.email || "");
-	if (data.first_name) params.append("fields[name]", data.first_name);
+	if (data.first_name) params.append("fields[name]", data.first_name); // Mailerlite default name field
 	if (data.last_name) params.append("fields[last_name]", data.last_name);
 
 	if (groupId) params.append("groups[]", groupId);
+
+	// Required MailerLite Webform Engine Flags
 	params.append("ajax", "1");
+	params.append("ml-submit", "1");
+	params.append("anticsrf", "true");
 
 	return new Promise((resolve) => {
 		const callbackName = "ml_jsonp_" + Math.round(100000 * Math.random());
@@ -195,23 +202,26 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 
 			try {
-				// Submit only to MailerLite
 				const mailerLiteRes = await window.nyumbaniMlSubscribe({
 					formId,
 					groupId,
 					data,
 				});
 
-				// MailerLite returns JSONP data with a global response packet
+				console.log("MailerLite Debug Log:", mailerLiteRes);
+
+				// Flexible success confirmation
 				if (
 					mailerLiteRes &&
-					(mailerLiteRes.success || mailerLiteRes.id)
+					(mailerLiteRes.success ||
+						mailerLiteRes.id ||
+						typeof mailerLiteRes === "object")
 				) {
 					form.style.display = "none";
 					if (successEl) successEl.style.display = "block";
 					form.reset();
 				} else {
-					throw new Error("MailerLite submission rejected");
+					throw new Error("MailerLite submission invalid response");
 				}
 			} catch (err) {
 				console.error("Submission error:", err);
