@@ -83,58 +83,50 @@
 // The dev team will replace these REPLACE_WITH_* placeholders with real
 // MailerLite IDs once the account is approved. See README-DEV.md.
 // =====================================================================
-window.nyumbaniMlSubscribe = async function ({
-	formId,
-	groupId,
-	data,
-	onSuccess,
-	onError,
-}) {
+window.nyumbaniMlSubscribe = async function ({ formId, groupId, data }) {
 	const ACCOUNT_ID = "REPLACE_WITH_MAILERLITE_ACCOUNT_ID";
 	const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${formId}/subscribe`;
 
 	if (data._gotcha) {
-		if (onSuccess) onSuccess();
 		return;
 	}
 
-	try {
-		const payload = new URLSearchParams();
-		payload.append("fields[email]", data.email || "");
-		if (data.first_name) payload.append("fields[name]", data.first_name);
-		if (data.last_name) payload.append("fields[last_name]", data.last_name);
-		if (data.phone) payload.append("fields[phone]", data.phone);
-		if (data.care_needed)
-			payload.append("fields[care_needed]", data.care_needed);
-		if (data.city) payload.append("fields[city]", data.city);
-		if (data.message) payload.append("fields[message]", data.message);
-		if (groupId) payload.append("groups[]", groupId);
-		payload.append("ml-submit", "1");
-		payload.append("anticsrf", "true");
+	const payload = new URLSearchParams();
+	payload.append("fields[email]", data.email || "");
+	if (data.first_name) payload.append("fields[name]", data.first_name);
+	if (data.last_name) payload.append("fields[last_name]", data.last_name);
+	if (data.phone) payload.append("fields[phone]", data.phone);
+	if (data.care_needed)
+		payload.append("fields[care_needed]", data.care_needed);
+	if (data.city) payload.append("fields[city]", data.city);
+	if (data.message) payload.append("fields[message]", data.message);
+	if (groupId) payload.append("groups[]", groupId);
+	payload.append("ml-submit", "1");
+	payload.append("anticsrf", "true");
 
-		await fetch(endpoint, {
-			method: "POST",
-			mode: "no-cors",
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: payload.toString(),
-		});
-
-		if (onSuccess) onSuccess();
-	} catch (err) {
-		console.error("MailerLite subscribe error:", err);
-		if (onError) onError(err);
-	}
+	// Returning the fetch promise directly so Promise.all can track it
+	return fetch(endpoint, {
+		method: "POST",
+		mode: "no-cors",
+		headers: { "Content-Type": "application/x-www-form-urlencoded" },
+		body: payload.toString(),
+	});
 };
 
 document.addEventListener("DOMContentLoaded", () => {
 	document.querySelectorAll("form[data-ml-form]").forEach((form) => {
 		form.addEventListener("submit", async (e) => {
+			// 1. Instantly stop Formspree / native browser handling from firing
 			e.preventDefault();
 
 			const formId = form.dataset.mlFormId;
 			const groupId = form.dataset.mlGroupId;
 
-			// Safe DOM traversal that doesn't rely on wrapper divs
+			// Pull Formspree Action URL directly from the form attribute, or hardcode it
+			const formspreeEndpoint =
+				form.getAttribute("action") ||
+				"https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT_OR_ID";
+
 			const errorEl = form.querySelector(".form-error");
 			const successEl =
 				(
@@ -164,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				errorEl.textContent = "";
 			}
 
-			// Validation Logic
+			// 2. Run Validation Logic
 			let validationErrors = [];
 
 			if (!data.first_name)
@@ -179,12 +171,19 @@ document.addEventListener("DOMContentLoaded", () => {
 				validationErrors.push("Please enter a valid email address.");
 			}
 
-			// Stop execution if errors are caught
+			// Stop execution completely if validations fail
 			if (validationErrors.length > 0) {
 				if (errorEl) {
 					errorEl.innerHTML = validationErrors.join("<br>");
 					errorEl.style.display = "block";
 				}
+				return;
+			}
+
+			// Honeypot check
+			if (data._gotcha) {
+				form.style.display = "none";
+				if (successEl) successEl.style.display = "block";
 				return;
 			}
 
@@ -194,32 +193,42 @@ document.addEventListener("DOMContentLoaded", () => {
 				submitBtn.textContent = "Sending…";
 			}
 
-			await window.nyumbaniMlSubscribe({
-				formId,
-				groupId,
-				data,
-				onSuccess: () => {
+			// 3. Simultaneously fire AJAX requests to both platforms
+			try {
+				const [mailerLiteRes, formspreeRes] = await Promise.all([
+					// Submit to MailerLite
+					window.nyumbaniMlSubscribe({ formId, groupId, data }),
+
+					// Submit to Formspree
+					fetch(formspreeEndpoint, {
+						method: "POST",
+						body: fd, // Sends raw FormData exactly how Formspree expects it
+						headers: { Accept: "application/json" },
+					}),
+				]);
+
+				// Formspree returns an internal `.ok` status when JSON headers are used
+				if (formspreeRes.ok) {
 					form.style.display = "none";
 					if (successEl) successEl.style.display = "block";
-					if (submitBtn) {
-						submitBtn.disabled = false;
-						submitBtn.textContent =
-							submitBtn.dataset.origLabel || "Submit";
-					}
-				},
-				onError: () => {
-					if (errorEl) {
-						errorEl.textContent =
-							"Something went wrong sending your message. Please email info@nyumbanisupportsolutions.com directly.";
-						errorEl.style.display = "block";
-					}
-					if (submitBtn) {
-						submitBtn.disabled = false;
-						submitBtn.textContent =
-							submitBtn.dataset.origLabel || "Submit";
-					}
-				},
-			});
+					form.reset();
+				} else {
+					throw new Error("Formspree submission failed");
+				}
+			} catch (err) {
+				console.error("Submission error:", err);
+				if (errorEl) {
+					errorEl.textContent =
+						"Something went wrong sending your message. Please email info@nyumbanisupportsolutions.com directly.";
+					errorEl.style.display = "block";
+				}
+			} finally {
+				if (submitBtn) {
+					submitBtn.disabled = false;
+					submitBtn.textContent =
+						submitBtn.dataset.origLabel || "Submit";
+				}
+			}
 		});
 	});
 });
