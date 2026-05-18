@@ -1,15 +1,6 @@
 // =====================================================================
 // Nyumbani Support Solutions — app.js
 // =====================================================================
-// Includes:
-//   1. Theme toggle (light/dark)
-//   2. Mobile nav
-//   3. Scroll reveal
-//   4. Footer year
-//   5. WhatsApp floating button injector (site-wide)
-//   6. MailerLite subscribe helper (forms wired via shared endpoint)
-// =====================================================================
-
 (function () {
 	const root = document.documentElement;
 	root.classList.add("js");
@@ -73,17 +64,8 @@
 })();
 
 // =====================================================================
-// Floating WhatsApp button — handled by inline HTML (.whatsapp-fab) on
-// every page. JS injection removed to avoid duplicate unstyled markup.
-// =====================================================================
-
-// =====================================================================
 // MailerLite subscribe helper — used by all forms on the site
 // =====================================================================
-// The dev team will replace these REPLACE_WITH_* placeholders with real
-// MailerLite IDs once the account is approved. See README-DEV.md.
-// =====================================================================
-// 1. MailerLite Subscription Handler (With strict Webform payload flags)
 window.nyumbaniMlSubscribe = function ({ formId, groupId, data }) {
 	const ACCOUNT_ID = "2342537";
 	const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${formId}/subscribe`;
@@ -96,7 +78,7 @@ window.nyumbaniMlSubscribe = function ({ formId, groupId, data }) {
 
 	// Core Subscriber Fields
 	params.append("fields[email]", data.email || "");
-	if (data.first_name) params.append("fields[name]", data.first_name); // Mailerlite default name field
+	if (data.first_name) params.append("fields[name]", data.first_name);
 	if (data.last_name) params.append("fields[last_name]", data.last_name);
 
 	if (groupId) params.append("groups[]", groupId);
@@ -131,7 +113,7 @@ window.nyumbaniMlSubscribe = function ({ formId, groupId, data }) {
 	});
 };
 
-// 2. MailerLite-Only Form Handler
+// MailerLite Form Submission Listener
 document.addEventListener("DOMContentLoaded", () => {
 	document.querySelectorAll("form[data-ml-form]").forEach((form) => {
 		form.addEventListener("submit", async (e) => {
@@ -141,13 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			const groupId = form.dataset.mlGroupId;
 
 			const errorEl = form.querySelector(".form-error");
-			const successEl =
-				(
-					form.nextElementSibling &&
-					form.nextElementSibling.classList.contains("form-success")
-				) ?
-					form.nextElementSibling
-				:	form.parentElement.querySelector(".form-success");
+
+			// FIX: Scoped target lookup ensures we fetch the *immediate* sibling success message block
+			const successEl = form.parentElement.querySelector(".form-success");
 
 			const submitBtn = form.querySelector('button[type="submit"]');
 			const fd = new FormData(form);
@@ -195,7 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			if (submitBtn) {
 				submitBtn.disabled = true;
-				submitBtn.dataset.origLabel = submitBtn.textContent;
+				// FIX: Added .trim() to ensure raw spacing inside button HTML template doesn't mess with UI styles
+				submitBtn.dataset.origLabel = submitBtn.textContent.trim();
 				submitBtn.textContent = "Sending…";
 			}
 
@@ -208,18 +187,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				console.log("MailerLite Debug Log:", mailerLiteRes);
 
-				// Flexible success confirmation
-				if (
-					mailerLiteRes &&
-					(mailerLiteRes.success ||
-						mailerLiteRes.id ||
-						typeof mailerLiteRes === "object")
-				) {
+				// FIX: Strict check verifying MailerLite explicitly marked JSON response true
+				if (mailerLiteRes && mailerLiteRes.success === true) {
 					form.style.display = "none";
 					if (successEl) successEl.style.display = "block";
 					form.reset();
 				} else {
-					throw new Error("MailerLite submission invalid response");
+					// Check for API custom server message errors
+					const serverError =
+						mailerLiteRes?.errors?.email?.[0] ||
+						"MailerLite submission invalid response";
+					throw new Error(serverError);
 				}
 			} catch (err) {
 				console.error("Submission error:", err);
@@ -231,8 +209,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			} finally {
 				if (submitBtn) {
 					submitBtn.disabled = false;
+					// FIX: Safely fallback directly back to the original layout text
 					submitBtn.textContent =
-						submitBtn.dataset.origLabel || "Submit";
+						submitBtn.dataset.origLabel || "Send Me the Guide";
 				}
 			}
 		});
